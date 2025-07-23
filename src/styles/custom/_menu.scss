@@ -1,0 +1,19 @@
+.p-menu {
+  .p-menuitem-content {
+    .p-menuitem-text {
+      line-height: $leading-6;
+    }
+    .p-menuitem-icon {
+      font-size: $font-xs;
+    }
+    svg.p-icon {
+      width: $sizing-3;
+      height: $sizing-3;
+    }
+  }
+  .p-menuitem.p-focus {
+    .p-menuitem-text {
+      font-weight: $font-800;
+    }
+  }
+}

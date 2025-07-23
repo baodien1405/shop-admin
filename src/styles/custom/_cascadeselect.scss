@@ -1,0 +1,42 @@
+.p-cascadeselect-panel {
+  .p-cascadeselect-items {
+    .p-cascadeselect-item {
+      &.p-highlight {
+        font-size: $font-sm;
+        font-weight: $font-600;
+        line-height: $leading-5;
+      }
+
+      .p-cascadeselect-item-content {
+        padding: $padding-3-5 $padding-4;
+      }
+
+      &:not(.p-highlight):not(.p-disabled) {
+        .p-cascadeselect-item-text {
+          font-size: $font-sm;
+          font-weight: $font-400;
+          line-height: $leading-5;
+        }
+      }
+
+      &:hover {
+        background-color: $color-bg-neutral-hover;
+      }
+
+      &.p-highlight:hover {
+        background-color: $color-bg-primary-light-hover;
+        color: $color-text-primary-hover;
+      }
+    }
+  }
+}
+
+.p-cascadeselect {
+  &.p-invalid {
+    background-color: $color-bg-danger-light;
+  }
+
+  &.p-invalid.p-focus {
+    box-shadow: none;
+  }
+}

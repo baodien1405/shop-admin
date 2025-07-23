@@ -1,0 +1,29 @@
+.p-tree {
+  .p-tree-container .p-treenode .p-treenode-content {
+    &:hover {
+      background: $color-bg-neutral-hover;
+    }
+  }
+  .p-treenode {
+    &:focus {
+      background: $color-bg-primary-light-hover;
+      border-radius: $rounded-md;
+      .p-treenode-content {
+        box-shadow: none !important;
+      }
+    }
+    &-content {
+      cursor: pointer;
+    }
+  }
+  .p-tree-toggler.p-link {
+    svg.p-icon {
+      @extend .icon-small;
+    }
+  }
+  .p-tree-toggler {
+    &:hover {
+      background: $color-bg-neutral-hover;
+    }
+  }
+}

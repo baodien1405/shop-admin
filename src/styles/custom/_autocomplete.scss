@@ -1,0 +1,71 @@
+@import '../prime-theme-generator/themes/dc/mapped-tokens';
+
+[type='search']::-webkit-search-decoration,
+[type='search']::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.p-autocomplete {
+  .p-autocomplete-items-wrapper {
+    .p-autocomplete-items {
+      .p-autocomplete-item {
+        font-size: $font-sm;
+        font-weight: $font-400;
+        line-height: $leading-5;
+      }
+    }
+  }
+
+  .p-autocomplete-multiple-container {
+    gap: $gap-1;
+
+    .p-autocomplete-token {
+      padding: $padding-0-5 $padding-2;
+      margin-right: 0;
+      background: $color-bg-primary;
+      color: $color-text-inverse;
+      border-radius: $rounded-full;
+
+      .p-autocomplete-token-label {
+        font-size: $font-sm;
+        font-weight: $font-400;
+        line-height: $leading-5;
+        color: $color-text-inverse;
+      }
+
+      svg {
+        width: $sizing-3-5;
+        height: $sizing-3-5;
+      }
+    }
+  }
+
+  .autocomplete {
+    &__input {
+      height: auto;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .p-autocomplete-dropdown.p-button.p-component.p-button-icon-only {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &__dropdown {
+      &--expanded {
+        z-index: 12321 !important;
+      }
+    }
+  }
+
+  &.p-invalid.p-component {
+    .p-inputtext.p-component {
+      background-color: $color-bg-danger-light;
+    }
+
+    .p-inputtext.p-component:enabled:focus {
+      box-shadow: none;
+    }
+  }
+}

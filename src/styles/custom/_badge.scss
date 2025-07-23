@@ -1,0 +1,10 @@
+.p-badge {
+  &.p-badge-lg {
+    height: $sizing-8;
+    font-size: $font-lg;
+  }
+  &.p-badge-xl {
+    height: $sizing-10;
+    font-size: $font-2xl;
+  }
+}

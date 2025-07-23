@@ -1,0 +1,380 @@
+@import './_utils';
+@import './_primitive';
+
+// DC Design System ** MAPPED WITH FIGMA **
+$spacing-0: number(0);
+$spacing-0-25: number(1);
+$spacing-0-5: number(2);
+$spacing-1: number(4);
+$spacing-1-5: number(6);
+$spacing-2: number(8);
+$spacing-2-5: number(10);
+$spacing-3: number(12);
+$spacing-4: number(16);
+$spacing-5: number(20);
+$spacing-6: number(24);
+$spacing-7: number(28);
+$spacing-8: number(32);
+$spacing-9: number(36);
+$spacing-10: number(40);
+
+$gap-0: number(0);
+$gap-0-5: number(2);
+$gap-1: number(4);
+$gap-1-5: number(6);
+$gap-2: number(8);
+$gap-2-5: number(10);
+$gap-3: number(12);
+$gap-4: number(16);
+
+$rounded-none: number(0);
+$rounded-sm: number(2);
+$rounded: number(4);
+$rounded-md: number(6);
+$rounded-lg: number(8);
+$rounded-xl: number(10);
+$rounded-xl: number(12);
+$rounded-2xl: number(16);
+$rounded-3xl: number(24);
+$rounded-4xl: number(30);
+$rounded-full: 9999px;
+
+$padding-0: number(0);
+$padding-0-25: number(1);
+$padding-0-5: number(2);
+$padding-1: number(4);
+$padding-1-5: number(6);
+$padding-2: number(8);
+$padding-2-5: number(10);
+$padding-3: number(12);
+$padding-3-5: number(14);
+$padding-4: number(16);
+$padding-5: number(20);
+$padding-6: number(24);
+$padding-7: number(28);
+$padding-8: number(32);
+$padding-9: number(36);
+$padding-10: number(40);
+
+$outline-0: number(0);
+$outline-1: number(1);
+$outline-2: number(2);
+$outline-4: number(4);
+$outline-8: number(8);
+$border-0: number(0);
+$border-1: number(1);
+$border-2: number(2);
+$border-4: number(4);
+$border-8: number(8);
+$stroke-0: number(0);
+$stroke-1: number(1);
+$stroke-2: number(2);
+$stroke-8: number(8);
+
+$sizing-0: number(0);
+$sizing-0-25: number(1);
+$sizing-0-5: number(2);
+$sizing-1: number(4);
+$sizing-1-5: number(6);
+$sizing-2: number(8);
+$sizing-2-5: number(10);
+$sizing-3: number(12);
+$sizing-3-5: number(14);
+$sizing-4: number(16);
+$sizing-4-5: number(18);
+$sizing-5: number(20);
+$sizing-6: number(24);
+$sizing-6-5: number(26);
+$sizing-7: number(28);
+$sizing-7-5: number(30);
+$sizing-8: number(32);
+$sizing-9: number(36);
+$sizing-10: number(40);
+$sizing-12: number(48);
+$sizing-14: number(56);
+
+// Background colors
+$color-bg-blue: var(--blue-500);
+$color-bg-blue-hover: var(--blue-700);
+$color-bg-blue-light: var(--blue-25);
+$color-bg-blue-light-hover: var(--blue-50);
+$color-bg-blue-light-pressed: var(--blue-100);
+$color-bg-blue-pressed: var(--blue-800);
+
+$color-bg-primary: var(--primary-500);
+$color-bg-primary-hover: var(--primary-700);
+$color-bg-primary-light: var(--primary-25);
+$color-bg-primary-light-hover: var(--primary-50);
+$color-bg-primary-light-pressed: var(--primary-100);
+$color-bg-primary-pressed: var(--primary-800);
+
+$color-bg-container: var(--neutral-50);
+$color-bg-container-hover: var(--neutral-100);
+$color-bg-container-inverse: var(--neutral-0);
+
+$color-bg-danger: var(--red-600);
+$color-bg-danger-hover: var(--red-700);
+$color-bg-danger-light: var(--red-25);
+$color-bg-danger-light-hover: var(--red-50);
+$color-bg-danger-light-pressed: var(--red-100);
+$color-bg-danger-pressed: var(--red-800);
+
+$color-bg-dark: var(--neutral-800);
+
+$color-bg-disabled: var(--neutral-200);
+$color-bg-disabled-bolder: var(--neutral-300);
+$color-bg-disabled-hover: var(--neutral-300);
+
+$color-bg-discovery: var(--purple-600);
+$color-bg-discovery-hover: var(--purple-700);
+$color-bg-discovery-light: var(--purple-25);
+$color-bg-discovery-light-hover: var(--purple-50);
+$color-bg-discovery-light-pressed: var (--purple-100);
+$color-bg-discovery-pressed: var(--purple-800);
+
+$color-bg-green: var(--green-700);
+$color-bg-green-hover: var(--green-800);
+$color-bg-green-light: var(--green-25);
+$color-bg-green-light-hover: var(--green-50);
+$color-bg-green-light-pressed: var(--green-100);
+$color-bg-green-pressed: var(--green-900);
+
+$color-bg-info: var(--blue-500);
+$color-bg-info-hover: var(--blue-700);
+$color-bg-info-light: var(--blue-25);
+$color-bg-info-light-hover: var(--blue-50);
+$color-bg-info-light-pressed: var(--blue-100);
+$color-bg-info-pressed: var(--blue-800);
+
+$color-bg-layout: var(--neutral-50);
+
+$color-bg-neutral: var(--neutral-25);
+$color-bg-neutral-hover: var(--neutral-50);
+$color-bg-neutral-pressed: var(--neutral-100);
+
+$color-bg-purple: var(--purple-600);
+$color-bg-purple-hover: var(--purple-700);
+$color-bg-purple-light: var(--purple-25);
+$color-bg-purple-light-hover: var(--purple-50);
+$color-bg-purple-light-pressed: var(--purple-100);
+$color-bg-purple-pressed: var(--purple-800);
+
+$color-bg-red: var(--red-600);
+$color-bg-red-hover: var(--red-700);
+$color-bg-red-light: var(--red-25);
+$color-bg-red-light-hover: var(--red-50);
+$color-bg-red-light-pressed: var(--red-100);
+$color-bg-red-pressed: var(--red-800);
+
+$color-bg-secondary: var(--complementary-500);
+$color-bg-secondary-hover: var(--complementary-600);
+$color-bg-secondary-light-hover: var(--complementary-400);
+$color-bg-secondary-light-pressed: var(--complementary-900);
+$color-bg-secondary-pressed: var(--complementary-700);
+
+$color-bg-selected: var(--primary-25);
+$color-bg-selected-hover: var(--primary-50);
+$color-bg-selected-pressed: var(--primary-100);
+
+$color-bg-spot-light: var(--neutral-50);
+
+$color-bg-success: var(--green-700);
+$color-bg-success-hover: var(--green-800);
+$color-bg-success-light: var(--green-25);
+$color-bg-success-light-hover: var(--green-50);
+$color-bg-success-light-pressed: var(--green-100);
+$color-bg-success-pressed: var(--green-900);
+
+$color-bg-warning: var(--yellow-700);
+$color-bg-warning-hover: var(--yellow-800);
+$color-bg-warning-light: var(--yellow-25);
+$color-bg-warning-light-hover: var(--yellow-50);
+$color-bg-warning-light-pressed: var(--yellow-100);
+$color-bg-warning-pressed: var(--yellow-900);
+
+$color-bg-yellow: var(--yellow-700);
+$color-bg-yellow-hover: var(--yellow-800);
+$color-bg-yellow-light: var(--yellow-25);
+$color-bg-yellow-light-hover: var(--yellow-50);
+$color-bg-yellow-light-pressed: var(--yellow-100);
+$color-bg-yellow-pressed: var(--yellow-900);
+
+// END Background Colors
+// Text Colors
+$color-text-inverse: var(--neutral-0);
+$color-text-inverse-hover: var(--neutral-50);
+$color-text-gray: var(--neutral-600);
+$color-text-gray-hover: var(--neutral-800);
+$color-text-black: var(--neutral-950);
+$color-text-green-light: var(--green-500);
+$color-text-green: var(--green-700);
+$color-text-green-hover: var(--green-900);
+$color-text-red: var(--red-700);
+$color-text-red-hover: var(--red-900);
+$color-text-blue: var(--blue-500);
+$color-text-blue-hover: var(--blue-700);
+$color-text-yellow: var(--yellow-700);
+$color-text-yellow-hover: var(--yellow-900);
+$color-text-purple: var(--purple-600);
+$color-text-purple-hover: var(--purple-800);
+$color-text-disabled: var(--neutral-400);
+$color-text-disabled-hover: var(--neutral-500);
+$color-text-selected: var(--blue-500);
+$color-text-danger: var(--red-700);
+$color-text-danger-hover: var(--red-900);
+$color-text-warning: var(--yellow-700);
+$color-text-warning-hover: var(--yellow-900);
+$color-text-success: var(--green-700);
+$color-text-success-hover: var(--green-900);
+$color-text-info: var(--blue-500);
+$color-text-info-hover: var(--blue-700);
+$color-text-primary: var(--primary-500);
+$color-text-primary-hover: var(--primary-700);
+$color-text-discovery: var(--purple-600);
+$color-text-discovery-hover: var(--purple-800);
+// End Text Colors
+
+// Icon Colors
+$color-icon-light: var(--neutral-300);
+$color-icon-light-hover: var(--neutral-500);
+$color-icon-gray-light: var(--neutral-300);
+$color-icon-gray-light-hover: var(--neutral-500);
+$color-icon-gray: var(--neutral-600);
+$color-icon-gray-hover: var(--purple-800);
+$color-icon-black: var(--neutral-950);
+$color-icon-black-hover: var(--neutral-900);
+$color-icon-red: var(--red-700);
+$color-icon-red-hover: var(--red-900);
+$color-icon-yellow: var(--yellow-700);
+$color-icon-yellow-hover: var(--yellow-900);
+$color-icon-green: var(--green-700);
+$color-icon-green-hover: var(--green-900);
+$color-icon-purple: var(--purple-600);
+$color-icon-purple-hover: var(--purple-800);
+$color-icon-blue: var(--blue-500);
+$color-icon-blue-hover: var(--blue-700);
+$color-icon-inverse: var(--neutral-0);
+$color-icon-disabled: var(--neutral-400);
+$color-icon-disabled-hover: var(--neutral-500);
+$color-icon-selected: var(--blue-500);
+$color-icon-primary: var(--primary-500);
+$color-icon-primary-hover: var(--primary-700);
+$color-icon-danger: var(--red-700);
+$color-icon-danger-hover: var(--red-900);
+$color-icon-warning: var(--yellow-700);
+$color-icon-warning-hover: var(--yellow-900);
+$color-icon-success: var(--green-700);
+$color-icon-success-hover: var(--green-900);
+$color-icon-info: var(--blue-500);
+$color-icon-info-hover: var(--blue-700);
+$color-icon-discovery: var(--purple-600);
+$color-icon-discovery-hover: var(--purple-800);
+$color-icon-neutral: var(--neutral-100);
+$color-icon-neutral-hover: var(--neutral-300);
+$color-icon-light-hover: var(--gray-500);
+// End Icon Colors
+
+// Border Colors
+$color-border-primary-bolder: var(--primary-950);
+$color-border-primary: var(--primary-500);
+$color-border-primary-hover: var(--primary-700);
+$color-border-primary-pressed: var(--primary-800);
+$color-border-gray: var(--neutral-600);
+$color-border-gray-hover: var(--neutral-800);
+$color-border-neutral: var(--neutral-100);
+$color-border-neutral-hover: var(--neutral-300);
+$color-border-black: var(--neutral-950);
+$color-border-red: var(--red-700);
+$color-border-red-hover: var(--red-900);
+$color-border-yellow: var(--yellow-700);
+$color-border-yellow-hover: var(--yellow-900);
+$color-border-danger: var(--red-700);
+$color-border-danger-hover: var(--red-900);
+$color-border-warning: var(--yellow-700);
+$color-border-warning-hover: var(--yellow-900);
+$color-border-blue: var(--blue-500);
+$color-border-blue-hover: var(--blue-700);
+$color-border-info: var(--blue-500);
+$color-border-info-hover: var(--blue-700);
+$color-border-disabled: var(--neutral-400);
+$color-border-disable-hover: var(--neutral-500);
+$color-border-green: var(--green-700);
+$color-border-green-hover: var(--neutral-900);
+$color-border-success: var(--green-700);
+$color-border-success-hover: var(--neutral-900);
+$color-border-purple: var(--purple-600);
+$color-border-purple-hover: var(--purple-800);
+$color-border-discovery: var(--purple-600);
+$color-border-discovery-hover: var(--purple-800);
+// End Border Colors
+
+// Shadow Colors
+$color-shadow-message: var(--neutral-950);
+$color-shadow-toggle1: var(--neutral-0);
+$color-shadow-toggle2: var(--primary-50);
+$color-shadow-focus-item: var(--primary-50);
+$color-shadow-focus-checkbox: var(--primary-50);
+$color-shadow-cover-bg1: rgba(var(--neutral-950), 0.05);
+$color-shadow-cover-bg2: rgba(var(--neutral-950), 0.05);
+$color-shadow-overlay-menu: rgba(var(--neutral-950), 0.1);
+$color-shadow-overlay-container: rgba(var(--neutral-950), 0.3);
+$color-shadow-overlay-input: rgba(var(--neutral-950), 0.1);
+$color-shadow-card1: rgba(var(--neutral-950), 0.2);
+$color-shadow-card2: rgba(var(--neutral-950), 0.14);
+$color-shadow-card3: rgba(var(--neutral-950), 0.12);
+$color-shadow-button1: rgba(var(--neutral-950), 0.2);
+$color-shadow-button2: rgba(var(--neutral-950), 0.14);
+$color-shadow-button3: rgba(var(--neutral-950), 0.12);
+$color-shadow-effect: rgba(var(--neutral-950), 0.1);
+// End Shadow Colors
+
+// Misc Colors
+$color-link: var(--blue-500);
+$color-link-pressed: var(--blue-700);
+$color-link-visited: var(--purple-600);
+$color-link-visited-pressed: var(--purple-800);
+$color-skeleton: var(--neutral-50);
+$color-overlay: var(--neutral-950-70);
+$color-overlay-selected: var(--blue-950);
+$color-divider: var(--neutral-100);
+$color-scrollbar: var(--neutral-500);
+$color-overlay-danger: var(--red-950);
+// End Misc Colors
+
+$primary-color: var(--primary-500) !default;
+$primary-dark-color: var(--primary-700) !default;
+$primary-darker-color: var(--primary-950) !default;
+$primary-text-color: #ffffff !default;
+
+$highlight-bg: #eef2ff !default;
+$highlight-text-color: #312e81 !default;
+$highlight-focus-bg: #e0e7ff !default;
+
+//// Typography
+
+// Font Size
+$font-xxs: number(10);
+$font-xs: number(12);
+$font-sm: number(14);
+$font-base: number(16);
+$font-lg: number(18);
+$font-xl: number(20);
+$font-2xl: number(24);
+$font-3xl: number(30);
+$font-4xl: number(36);
+$font-5xl: number(48);
+$font-6xl: number(60);
+// Font Weight
+$font-400: 400;
+$font-600: 600;
+$font-800: 800;
+// Line height
+$leading-3: number(12);
+$leading-4: number(16);
+$leading-5: number(20);
+$leading-6: number(24);
+$leading-7: number(28);
+$leading-8: number(32);
+$leading-9: number(36);
+$leading-10: number(40);
+$leading-20: number(80);

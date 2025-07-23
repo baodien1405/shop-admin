@@ -1,0 +1,18 @@
+.p-megamenu {
+  padding: $padding-2;
+  height: $sizing-14;
+  .p-menuitem.p-highlight > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    font-weight: $font-800;
+  }
+  .p-menuitem:not(.p-highlight):not(.p-disabled).p-focus > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    font-weight: $font-800;
+  }
+  .p-menuitem-text {
+    line-height: $leading-6;
+  }
+  .p-menuitem-content {
+    svg.p-icon {
+      @extend .icon-small;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.p-knob {
+  &.p-disabled {
+    opacity: 1;
+    path.p-knob-value {
+      stroke: $color-bg-disabled-hover;
+    }
+    .p-knob-text {
+      fill: $color-text-disabled;
+    }
+  }
+  .p-knob-text {
+    fill: $color-text-black;
+  }
+}

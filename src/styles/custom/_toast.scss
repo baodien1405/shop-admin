@@ -1,0 +1,45 @@
+.p-toast {
+  width: min-content;
+  .p-toast-message {
+    width: max-content;
+    .p-toast-message-content {
+      align-items: flex-start;
+      width: $toastMessageWidth;
+      justify-content: space-between;
+      .p-toast-summary {
+        font-weight: $font-800;
+        font-size: $font-base;
+        line-height: $leading-6;
+      }
+
+      .p-toast-detail {
+        font-weight: $font-400;
+        font-size: $font-sm;
+        line-height: $leading-5;
+      }
+
+      .p-toast-message-icon {
+        margin-top: $spacing-1;
+      }
+    }
+
+    .p-toast-icon-close {
+      margin-top: $spacing-1;
+      svg {
+        width: $sizing-2;
+      }
+    }
+
+    &.p-toast-message-secondary,
+    &.p-toast-message-contrast {
+      backdrop-filter: blur(number(10));
+    }
+  }
+}
+
+.p-toast-top-left,
+.p-toast-bottom-left {
+  .p-toast-message {
+    float: inline-start !important;
+  }
+}

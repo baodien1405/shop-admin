@@ -1,0 +1,56 @@
+.p-multiselect {
+  .p-multiselect-trigger {
+    width: $sizing-12;
+  }
+
+  &.p-multiselect-chip {
+    .p-multiselect-token {
+      margin-right: $spacing-1;
+      font-weight: $font-400;
+      font-size: $font-sm;
+      line-height: $leading-5;
+
+      .p-multiselect-token-icon {
+        margin-left: $gap-2;
+        width: $sizing-3-5;
+        height: $sizing-3-5;
+      }
+    }
+  }
+
+  &.p-invalid {
+    background-color: $color-bg-danger-light;
+  }
+
+  &.p-invalid.p-focus {
+    box-shadow: none;
+  }
+}
+
+.p-multiselect-panel {
+  .p-multiselect-header {
+    .p-multiselect-close.p-link {
+      display: none;
+    }
+  }
+
+  .p-multiselect-items-wrapper {
+    .p-multiselect-items {
+      padding: $spacing-2-5 0 0 0;
+
+      .p-multiselect-item {
+        span {
+          font-size: $font-sm;
+          font-weight: $font-400;
+          line-height: $leading-5;
+        }
+
+        &.p-highlight {
+          &.p-focus {
+            color: $color-text-primary-hover;
+          }
+        }
+      }
+    }
+  }
+}

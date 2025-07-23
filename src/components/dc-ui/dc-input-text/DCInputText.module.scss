@@ -1,0 +1,21 @@
+.input-text {
+  @apply px-4 py-3 w-full;
+  @apply text-base font-normal;
+  @apply bg-neutral-25 border-neutral-100 placeholder-neutral-600 text-neutral-950;
+
+  &:hover {
+    @apply bg-neutral-50 border-neutral-300;
+  }
+
+  &:focus {
+    @apply border-primary-500 shadow-focus-input;
+  }
+
+  &:disabled {
+    @apply bg-neutral-200 border-neutral-400 placeholder-neutral-400 text-neutral-950 opacity-100;
+  }
+
+  &.invalid {
+    @apply border-red-900 bg-red-50 text-red-700;
+  }
+}

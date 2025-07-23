@@ -1,0 +1,26 @@
+.p-chip.p-component {
+  background-color: $color-bg-container;
+  color: $color-text-black;
+  font-weight: $font-600;
+  font-size: $font-sm;
+  padding: $spacing-2 $spacing-3;
+  img {
+    width: $sizing-8;
+    height: $sizing-8;
+    border-radius: $rounded-full;
+  }
+  .p-chip-text,
+  .pi::before {
+    line-height: $leading-5;
+    margin: 0px;
+  }
+  .p-icon {
+    width: $sizing-3-5;
+    height: $sizing-3-5;
+  }
+  .p-chip-icon {
+    &::before {
+      font-size: $font-sm;
+    }
+  }
+}

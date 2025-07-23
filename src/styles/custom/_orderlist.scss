@@ -1,0 +1,12 @@
+.p-orderlist {
+  .p-orderlist-controls {
+    svg.p-icon {
+      width: $sizing-3;
+      height: $sizing-3;
+    }
+  }
+  .p-orderlist-filter-icon {
+    margin-top: 0 !important;
+    transform: translateY(-50%) !important;
+  }
+}

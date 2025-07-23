@@ -1,0 +1,26 @@
+.p-panelmenu {
+  color: $color-text-black;
+  .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+    background-color: $color-bg-container;
+  }
+  .p-panelmenu-content .p-menuitem:not(.p-highlight):not(.p-disabled).p-focus > .p-menuitem-content {
+    font-weight: $font-800;
+  }
+  .p-menuitem-icon {
+    font-size: $font-sm;
+  }
+  .p-menuitem-icon {
+    svg.p-icon {
+      width: $sizing-3;
+      height: $sizing-3;
+    }
+  }
+  .p-menuitem-link {
+    .p-menuitem-text {
+      line-height: $leading-6;
+    }
+  }
+  svg.p-submenu-icon {
+    @extend .icon-small;
+  }
+}

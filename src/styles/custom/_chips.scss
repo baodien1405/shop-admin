@@ -1,0 +1,115 @@
+.p-chips {
+  display: inline-flex;
+  .p-chips-token {
+    font-size: $font-sm;
+    line-height: $leading-5;
+    padding: $padding-0-5 $padding-2;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-bg-primary-hover;
+    }
+    svg,
+    .p-icon {
+      width: $sizing-3-5;
+    }
+  }
+  &-multiple-container {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    cursor: text;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &-token {
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+  &-input-token {
+    flex: 1 1 auto;
+    display: inline-flex;
+  }
+  &-token-icon {
+    cursor: pointer;
+  }
+  &-input-token input {
+    border: 0 none;
+    outline: 0 none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+  }
+  .p-fluid & {
+    display: flex;
+  }
+  &:not(.p-disabled):hover &-multiple-container {
+    border-color: var(--neutral-300);
+  }
+  &:not(.p-disabled).p-focus &-multiple-container {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 1px var(--primary-500);
+    border-color: var(--primary-500);
+  }
+  &-multiple-container {
+    padding: $padding-1-5 $padding-4;
+    outline-color: transparent;
+  }
+  &-multiple-container &-token {
+    padding: $padding-1-5 $padding-4;
+    margin-right: $spacing-2;
+    background: var(--primary-500);
+    color: var(--neutral-0);
+    border-radius: $rounded-full;
+  }
+  &-multiple-container &-token.p-focus {
+    background: var(--primary-700);
+    color: var(--neutral-0);
+  }
+  &-multiple-container &-token &-token-icon {
+    margin-left: $spacing-2;
+  }
+  &-multiple-container &-input-token {
+    padding: $padding-1-5 0;
+  }
+  &-multiple-container &-input-token input {
+    font-family: var(--font-family);
+    font-feature-settings: var(--font-feature-settings, normal);
+    font-size: $font-base;
+    color: var(--gray-700);
+    padding: 0;
+    margin: 0;
+  }
+  &.p-invalid.p-component > .p-inputtext {
+    border-color: var(--red-600);
+  }
+  &.p-disabled {
+    opacity: 1;
+    .p-inputtext {
+      @extend .input-field--disabled;
+    }
+    .p-chips-token {
+      background: $color-bg-disabled-bolder;
+      color: $color-text-disabled;
+    }
+  }
+}
+
+.p-chips {
+  &.p-invalid.p-component {
+    .p-inputtext {
+      background-color: $color-bg-danger-light;
+    }
+  }
+
+  &.p-invalid.p-component.p-focus .p-chips-multiple-container {
+    box-shadow: none;
+  }
+}

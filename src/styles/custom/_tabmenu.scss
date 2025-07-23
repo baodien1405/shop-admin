@@ -1,0 +1,6 @@
+.p-tabmenuitem.p-disabled {
+  .p-menuitem-link {
+    background-color: $color-bg-disabled;
+    color: $color-text-disabled;
+  }
+}

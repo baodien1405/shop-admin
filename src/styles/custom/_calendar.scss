@@ -1,0 +1,182 @@
+.p-datepicker {
+  table {
+    thead {
+      th {
+        span {
+          font-size: $font-sm;
+          font-weight: $font-800;
+        }
+      }
+    }
+
+    tbody {
+      .p-disabled,
+      .p-component:disabled {
+        opacity: 1 !important;
+        background-color: $color-bg-disabled !important;
+        color: $color-text-disabled;
+        cursor: not-allowed;
+      }
+
+      td {
+        span {
+          font-size: $font-sm;
+          font-weight: $font-400;
+        }
+
+        > span {
+          &.p-highlight {
+            color: $color-text-inverse;
+            background: $color-bg-primary;
+          }
+        }
+
+        &.p-datepicker-today {
+          > span {
+            &.p-highlight {
+              color: $color-text-primary;
+              background: $color-bg-secondary-hover;
+              border: 1px solid $color-border-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .p-monthpicker {
+    .p-monthpicker-month {
+      &.p-highlight {
+        color: $color-text-inverse;
+        background: $color-bg-primary;
+      }
+    }
+
+    .p-monthpicker-month.p-disabled {
+      opacity: 1 !important;
+      background-color: $color-bg-disabled !important;
+      color: $color-text-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  .p-yearpicker {
+    .p-yearpicker-year {
+      &.p-highlight {
+        color: $color-text-inverse;
+        background: $color-bg-primary;
+      }
+    }
+
+    .p-yearpicker-year.p-disabled {
+      opacity: 1 !important;
+      background-color: $color-bg-disabled !important;
+      color: $color-text-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  .p-datepicker-header {
+    .p-datepicker-prev,
+    .p-datepicker-next {
+      width: $sizing-7;
+      height: $sizing-7;
+
+      .p-icon {
+        width: $sizing-3-5;
+        height: $sizing-3-5;
+      }
+
+      &:hover {
+        border-radius: $rounded-full;
+        background-color: $color-bg-neutral-hover;
+        color: $color-icon-black;
+      }
+    }
+
+    .p-datepicker-title {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      gap: $gap-2;
+
+      .p-datepicker-month,
+      .p-datepicker-year,
+      .p-datepicker-decade {
+        flex: 1;
+        text-align: center;
+        padding: $padding-3 $padding-4;
+        font-weight: $font-800;
+        line-height: $leading-6;
+
+        &:enabled:hover {
+          border-radius: $rounded-md;
+          background-color: $color-bg-neutral-hover;
+        }
+      }
+
+      .p-datepicker-decade {
+        cursor: pointer;
+      }
+
+      .p-datepicker-decade:hover {
+        border-radius: $rounded-md;
+        background-color: $color-bg-neutral-hover;
+      }
+    }
+  }
+
+  .p-timepicker {
+    button {
+      width: $sizing-7;
+      height: $sizing-7;
+
+      .p-icon {
+        width: $sizing-3-5;
+        height: $sizing-3-5;
+      }
+
+      &:hover {
+        border-radius: $rounded-full;
+        background-color: $color-bg-neutral-hover;
+        color: $color-icon-black;
+      }
+    }
+  }
+}
+
+.p-calendar.p-component.p-inputwrapper.p-calendar-w-btn.p-calendar-w-btn-right {
+  .p-inputtext {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.p-calendar {
+  &.p-invalid.p-component {
+    .p-inputtext.p-component {
+      background-color: $color-bg-danger-light;
+    }
+  }
+
+  &.p-invalid.p-component.p-focus {
+    .p-inputtext {
+      box-shadow: none;
+    }
+  }
+}
+
+.p-icon-field {
+  &:has(.p-calendar) {
+    .pi {
+      &::before {
+        font-size: $font-xxs;
+      }
+    }
+  }
+}

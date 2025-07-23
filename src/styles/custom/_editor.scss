@@ -1,0 +1,27 @@
+.p-editor-container {
+  button,
+  .ql-picker-label,
+  .ql-picker-item {
+    &:hover {
+      &::before {
+        color: $color-icon-gray !important;
+      }
+      svg {
+        .ql-stroke {
+          stroke: $color-icon-gray !important;
+        }
+        .ql-fill {
+          fill: $color-icon-gray !important;
+        }
+      }
+    }
+    svg {
+      .ql-stroke {
+        stroke: $color-icon-light;
+      }
+      .ql-fill {
+        fill: $color-icon-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.p-fileupload {
+  .p-fileupload-content {
+    .p-fileupload-row {
+      & > div {
+        flex: unset;
+        width: unset;
+      }
+
+      div[data-pc-section='details'] {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      div[data-pc-section='actions'] {
+        button {
+          background-color: $color-bg-primary;
+          color: $color-text-inverse;
+          border-radius: $rounded-md;
+        }
+      }
+    }
+  }
+}

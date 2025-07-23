@@ -1,0 +1,28 @@
+.p-checkbox {
+  &:not(.p-highlight) {
+    &:hover {
+      .p-checkbox-box {
+        background-color: $color-bg-primary-light-hover;
+        border-color: $color-border-primary-hover;
+      }
+    }
+  }
+  &.p-disabled {
+    opacity: 1;
+    .p-checkbox-box {
+      background-color: $color-bg-disabled;
+      border-color: $color-bg-disabled;
+    }
+    &:hover {
+      .p-checkbox-box {
+        background-color: $color-bg-disabled-hover;
+        border-color: $color-bg-disabled-hover;
+      }
+    }
+  }
+  .p-checkbox-input {
+    &:focus {
+      @extend .field--focus;
+    }
+  }
+}

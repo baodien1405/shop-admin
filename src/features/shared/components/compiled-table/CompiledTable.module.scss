@@ -1,0 +1,52 @@
+.compiled-table {
+  :global {
+    .p-datatable-thead {
+      @apply rounded-md;
+    }
+
+    .p-datatable-thead > tr {
+      @apply rounded-md;
+    }
+
+    .p-frozen-column {
+      @apply bg-neutral-50;
+    }
+
+    .p-datatable-thead > tr > th {
+      @apply py-3;
+      @apply text-neutral-950 bg-neutral-50 text-xs font-semibold border-neutral-100;
+
+      &:first-child {
+        @apply rounded-tl-md;
+      }
+
+      &:last-child {
+        @apply rounded-tr-md;
+      }
+    }
+
+    .p-datatable-tbody > tr {
+      @apply text-sm text-neutral-950;
+    }
+
+    .p-datatable-tbody > tr > td {
+      @apply py-5 px-4;
+
+      &:first-child {
+        @apply py-4;
+      }
+
+      &:last-child {
+        @apply py-4;
+      }
+    }
+
+    .p-column-header-content {
+      @apply h-4;
+    }
+
+    .p-sortable-column .p-sortable-column-icon {
+      @apply w-3.5 h-4 ml-1;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.p-contextmenu {
+  .p-menuitem-icon {
+    font-size: $font-sm;
+  }
+  svg.p-icon {
+    @extend .icon-small;
+  }
+  .p-menuitem-text {
+    line-height: $leading-6;
+  }
+}

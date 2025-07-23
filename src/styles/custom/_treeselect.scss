@@ -1,0 +1,35 @@
+.p-treeselect {
+  .p-treeselect-trigger {
+    width: $sizing-8;
+    svg.p-icon {
+      @extend .icon-small;
+    }
+  }
+
+  &.p-invalid {
+    background-color: $color-bg-danger-light;
+  }
+
+  &.p-invalid.p-focus {
+    box-shadow: none;
+  }
+}
+.p-treeselect-panel {
+  .p-treenode-label {
+    font-size: $font-sm;
+    line-height: $leading-5;
+  }
+  svg.p-icon {
+    @extend .icon-small;
+  }
+  .pi {
+    font-size: $font-sm;
+  }
+  .p-tree-toggler {
+    height: $sizing-3-5;
+    width: $sizing-3-5;
+    &:hover {
+      background-color: $color-bg-container;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.select-button {
+  :global {
+    .p-button {
+      @apply px-4 py-1.5;
+      @apply text-sm font-semibold;
+      @apply shadow-none text-neutral-950 border-neutral-100;
+    }
+
+    .p-button.p-highlight {
+      @apply bg-primary-500 border-primary-500 text-neutral-0;
+    }
+  }
+}

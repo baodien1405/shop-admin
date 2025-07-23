@@ -1,0 +1,14 @@
+.p-panel-header {
+  background-color: $color-bg-spot-light;
+  border: 1px solid $color-border-neutral;
+}
+.p-panel.p-panel-toggleable {
+  svg.p-icon {
+    width: $sizing-3;
+    height: $sizing-3;
+  }
+}
+.p-panel-toggler {
+  width: $sizing-7;
+  height: $sizing-7;
+}

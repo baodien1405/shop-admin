@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import 'primeicons/primeicons.css';
+
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+  @import './prime-theme-generator/themes/dc/variables';
+  @import './generated';
+  @import './custom/index.scss';
+
+  :root {
+    --font-family: 'Manrope', sans-serif;
+    --bg-auth-layout: #002324;
+    --bg-highlight-card-yellow: #f6ff7e;
+    --bg-highlight-card-green: #9fe970;
+    --bg-scrollbar-thumb: #d0d0d0;
+    --border-scrollbar-thumb: #d0d0d0;
+    --table-scroll-height: calc(100vh - 360px);
+    --container-max-width-sm: 288px;
+    --container-max-width-md: 688px;
+    --container-max-width-xl: 1200px;
+    --container-max-width-2xl: 1440px;
+    --sidebar-expanded-width: 320px;
+    --sidebar-collapsed-width: 160px;
+    --header-height: 68px;
+    --toast-message-width: 344px;
+
+    *::-webkit-scrollbar {
+      @apply w-1.5 h-1.5;
+    }
+
+    *::-webkit-scrollbar-track {
+      @apply bg-neutral-0 rounded-md;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      @apply bg-[var(--bg-scrollbar-thumb)] rounded-[14px] border border-solid border-[var(--border-scrollbar-thumb)];
+    }
+  }
+
+  body {
+    font-family: var(--font-family);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    @extend .light-theme;
+  }
+}
+
+@layer components {
+  .text-btn {
+    @apply relative inline-flex w-fit items-center gap-1 text-sm font-bold leading-[1] text-primary-500;
+    &:after {
+      @apply absolute -bottom-0.5 left-0 h-[1px] w-0 bg-primary-500 transition-all ease-in-out content-[''];
+    }
+
+    &--white {
+      @apply text-white after:bg-white;
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+        @apply w-full;
+      }
+    }
+  }
+
+  .sidebar-menu {
+    .p-panelmenu-panel {
+      @apply mb-2;
+    }
+
+    .p-panelmenu-content {
+      @apply pl-5;
+    }
+
+    .p-menuitem {
+      @apply border-l-2 px-4 border-neutral-100;
+    }
+
+    .p-menuitem-link {
+      @apply py-3.5 px-4;
+    }
+
+    .p-menuitem-text {
+      @apply font-normal text-sm;
+    }
+
+    .p-menuitem-icon {
+      @apply text-sm;
+    }
+
+    svg.p-submenu-icon {
+      @apply order-3 ml-auto mr-0 text-sm w-3.5 h-3.5;
+    }
+
+    .p-panelmenu-header-link {
+      @apply py-3.5 px-4;
+    }
+
+    .p-panelmenu-header-content {
+      @apply bg-transparent border-none;
+    }
+
+    .p-panelmenu-content {
+      @apply bg-transparent border-none;
+    }
+
+    .p-panelmenu-header:hover .p-panelmenu-header-content {
+      @apply bg-primary-25 transition-colors ease-in-out duration-300;
+    }
+
+    .p-panelmenu-header:hover .p-panelmenu-header-link {
+      @apply text-primary-500 transition-colors ease-in-out duration-300;
+    }
+
+    .menu-parent-active {
+      & > .p-panelmenu-header > .p-panelmenu-header-content > .p-panelmenu-header-link {
+        @apply bg-primary-25 text-primary-500 rounded-md;
+
+        & > .p-menuitem-text {
+          @apply font-semibold;
+        }
+      }
+
+      & > .p-menuitem-content > .p-menuitem-link {
+        @apply bg-primary-25 text-primary-500 rounded-md;
+
+        & > .p-menuitem-text {
+          @apply text-primary-500 font-semibold;
+        }
+      }
+    }
+
+    .menu-item-active {
+      @apply border-primary-500;
+
+      & > .p-menuitem-content {
+        @apply bg-primary-25 rounded-md;
+      }
+
+      & > .p-menuitem-content > .p-menuitem-link > .p-menuitem-text {
+        @apply text-sm font-semibold text-primary-500;
+      }
+
+      .p-panelmenu-header-link {
+        @apply bg-primary-25 text-primary-500;
+      }
+
+      .p-panelmenu-header-link > .p-menuitem-text {
+        @apply text-sm font-semibold;
+      }
+    }
+  }
+}

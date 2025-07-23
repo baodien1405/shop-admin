@@ -1,0 +1,32 @@
+@import '../prime-theme-generator/themes/dc/primitive';
+@import '../prime-theme-generator/themes/dc/mapped-tokens';
+
+.icon {
+  &-small {
+    width: $sizing-2-5;
+    height: $sizing-2-5;
+    font-size: $font-xs;
+  }
+}
+
+.input-field--disabled {
+  opacity: 1;
+  background-color: $color-bg-disabled;
+  border-color: $color-border-disabled;
+  color: $color-text-gray;
+  cursor: not-allowed;
+}
+
+.field--focus {
+  box-shadow: $shadowFocusCheckboxX $shadowFocusCheckboxY $shadowFocusCheckboxBlur $shadowFocusCheckboxSpread
+    $color-shadow-focus-checkbox !important;
+}
+
+.input-field {
+  &.p-disabled {
+    @extend .input-field--disabled;
+  }
+  &:focus {
+    @extend .field--focus;
+  }
+}

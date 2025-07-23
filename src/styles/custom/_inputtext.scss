@@ -1,0 +1,11 @@
+.p-inputtext {
+  &:not(.p-dropdown-label) {
+    @extend .input-field;
+  }
+}
+
+.p-focus {
+  & > .p-inputtext:not(.p-dropdown-label) {
+    @extend .field--focus;
+  }
+}

@@ -1,0 +1,13 @@
+.p-menubar {
+  padding: $padding-2;
+  height: $sizing-14;
+  .p-menuitem.p-highlight > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    font-weight: $font-800;
+  }
+  .p-menuitem.p-focus > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    font-weight: $font-800;
+  }
+  .p-menuitem-text {
+    line-height: $leading-6;
+  }
+}

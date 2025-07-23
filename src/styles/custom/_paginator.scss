@@ -1,0 +1,46 @@
+.p-paginator {
+  button {
+    min-width: $sizing-7;
+    height: $sizing-7;
+    padding-left: $padding-2;
+    padding-right: $padding-2;
+  }
+  .p-icon {
+    width: $sizing-2-5;
+    height: $sizing-2-5;
+  }
+  .p-paginator-pages .p-paginator-page.p-highlight {
+    background-color: $color-bg-primary;
+    color: $color-text-inverse;
+  }
+  .p-paginator-page {
+    font-size: $font-sm;
+  }
+  .p-dropdown {
+    min-width: $sizing-14;
+    .p-dropdown-trigger {
+      min-width: $sizing-9;
+      svg.p-icon {
+        @extend .icon-small;
+      }
+    }
+    .p-dropdown-label {
+      line-height: $leading-6;
+    }
+  }
+  .p-dropdown {
+    height: $sizing-7;
+    .p-dropdown-label {
+      padding: $padding-0-5 $padding-0 $padding-0-5 $padding-3;
+      color: $color-text-black;
+      font-size: $font-sm;
+    }
+    .p-dropdown-trigger {
+      width: $sizing-7;
+      min-width: $sizing-7;
+    }
+  }
+  .p-paginator-current {
+    display: none;
+  }
+}

@@ -1,0 +1,890 @@
+@import './_mapped-tokens.scss';
+@import './_primitive';
+
+//reused color variables
+$shade000: #ffffff !default; //surface                          // Synced
+$shade100: var(--gray-50) !default; //header background           // Synced
+$shade200: var(--gray-100) !default; //hover background           // Synced
+$shade300: var(--gray-200) !default; //border, divider            // Synced
+$shade400: var(--gray-300) !default; //input border               // Synced
+$shade500: var(--gray-400) !default; //input icon                 // Synced
+$shade600: var(--gray-500) !default; //text secondary color       // Synced
+$shade700: var(--gray-700) !default; //text color                 // Synced
+$shade800: var(--gray-800) !default; //unused                     // Synced
+$shade900: var(--gray-900) !default; //unused                     // Synced
+
+//global
+$fontFamily: 'Manrope' !default; // Synced
+$fontSize: $font-base !default; // Synced
+$fontWeight: normal !default; // Synced
+$textColor: $shade700 !default;
+$textSecondaryColor: $shade600 !default;
+$borderRadius: $rounded-md !default; // Synced
+$transitionDuration: 0.2s !default;
+$formElementTransition:
+  background-color $transitionDuration,
+  color $transitionDuration,
+  border-color $transitionDuration,
+  box-shadow $transitionDuration !default; // Synced
+$actionIconTransition: none !default; // Synced
+$listItemTransition: none !default;
+$primeIconFontSize: $font-base !default; // Synced
+$divider: 1px solid $color-border-neutral !default; //coolgray-100
+$inlineSpacing: $spacing-2 !default; // Synced
+$disabledOpacity: 0.6 !default;
+$maskBg: $color-overlay !default;
+$loadingIconFontSize: 2rem !default;
+$errorColor: $color-text-danger !default; // Synced
+$highlightBg: #f6fffd; // Synced
+$highlightTextColor: $color-text-primary; // Synced
+$highlightFocusBg: $color-bg-primary-light-hover; // Synced
+
+//scale
+$scaleSM: 0.75 !default;
+$scaleLG: 1.25 !default;
+
+//focus
+$focusOutlineColor: var(--primary-500) !default;
+$focusOutline: 0 none !default;
+$focusOutlineOffset: 0 !default;
+$focusShadow: 0 0 0 1px $focusOutlineColor !default;
+
+$shadowFocusCheckboxX: 0px !default;
+$shadowFocusCheckboxY: 0px !default;
+$shadowFocusCheckboxBlur: 0px !default;
+$shadowFocusCheckboxSpread: 3px !default;
+$shadowFocusCheckboxColor: $color-shadow-focus-checkbox !default;
+
+//action icons
+$actionIconWidth: 1rem !default; // Synced
+$actionIconHeight: 1.5rem !default; // Synced
+$actionIconBg: transparent !default;
+$actionIconBorder: 0 none !default;
+$actionIconColor: $shade600 !default;
+$actionIconHoverBg: $shade200 !default;
+$actionIconHoverBorderColor: transparent !default;
+$actionIconHoverColor: $shade900 !default;
+$actionIconBorderRadius: 0 !default; // Synced
+
+//input field (e.g. inputtext, spinner, inputmask)
+$inputPadding: $padding-3 $padding-4 !default; // Synced
+$inputTextFontSize: $font-base !default;
+$inputBg: $color-bg-neutral !default; // Synced
+$inputTextColor: $color-text-gray !default; // Synced
+$inputIconColor: $color-icon-black !default; // Synced
+$inputBorder: $stroke-1 solid $color-border-neutral !default; // Synced
+$inputHoverBorderColor: $color-border-neutral-hover !default; // Synced
+$inputFocusBorderColor: $primary-color !default; // Synced
+$inputErrorBorderColor: $color-border-danger !default; // Synced
+$inputPlaceholderTextColor: $color-text-disabled !default; // Synced
+$inputFilledBg: $color-bg-neutral-hover !default; // Synced
+$inputFilledHoverBg: $inputFilledBg !default; // Synced
+$inputFilledFocusBg: $color-bg-container-inverse !default; // Synced
+
+//input groups
+$inputGroupBg: $color-bg-container !default; // Synced
+$inputGroupTextColor: $color-text-gray !default; // Synced
+$inputGroupAddOnMinWidth: $sizing-12 !default;
+
+//input lists (e.g. dropdown, autocomplete, multiselect, orderlist)
+$inputListBg: $shade000 !default; // Synced
+$inputListTextColor: $color-text-black !default; // Synced
+$inputListBorder: $inputBorder !default;
+$inputListPadding: 0.5rem 0 !default; // Synced
+$inputListItemPadding: 0.875rem 1rem !default; // Synced
+$inputListItemBg: transparent !default; // Synced
+$inputListItemTextColor: $color-text-black !default; // Synced
+$inputListItemHoverBg: $color-bg-neutral-hover !default; // Synced
+$inputListItemTextHoverColor: $color-text-black !default; // Synced
+$inputListItemFocusBg: $shade300 !default;
+$inputListItemTextFocusColor: $shade900 !default;
+$inputListItemBorder: 0 none !default; // Synced
+$inputListItemBorderRadius: 0 !default; // Synced
+$inputListItemMargin: 0 !default; // Synced
+$inputListItemFocusShadow: inset 0 0 0 0.15rem $focusOutlineColor !default;
+$inputListHeaderPadding: $padding-3 $padding-4 !default; // Synced
+$inputListHeaderMargin: 0 !default; // Synced
+$inputListHeaderBg: $color-bg-container !default; // Synced
+$inputListHeaderTextColor: $shade700 !default;
+$inputListHeaderBorder: 0 none !default; // Synced
+
+//inputs with overlays (e.g. autocomplete, dropdown, multiselect)
+$inputOverlayBg: $inputListBg !default; // Synced
+$inputOverlayHeaderBg: $inputListHeaderBg !default; // Synced
+$inputOverlayBorder: 0 none !default; // Synced
+$inputOverlayShadow:
+  0 0 #0000,
+  0 0 #0000,
+  0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05) !default;
+
+//password
+$passwordMeterBg: var(--surface-border) !default; // Synced
+$passwordWeakBg: $color-icon-red !default; // Synced
+$passwordMediumBg: $color-icon-yellow !default; // Synced
+$passwordStrongBg: $color-icon-green !default; // Synced
+
+//button
+$buttonPadding: $padding-3 $padding-4 !default; // Synced
+$buttonIconOnlyWidth: $sizing-12 !default; // Synced
+$buttonIconOnlyPadding: $padding-3 $padding-4 !default;
+$buttonBg: $color-bg-primary !default; // Synced
+$buttonTextColor: $color-text-inverse !default; // Synced
+$buttonBorder: 1px solid $color-bg-primary !default; // Synced
+$buttonHoverBg: $color-bg-primary-hover !default; // Synced
+$buttonTextHoverColor: $primary-text-color !default; // Synced
+$buttonHoverBorderColor: $color-bg-primary-hover !default; // Synced
+$buttonActiveBg: $color-bg-primary-pressed !default; // Synced
+$buttonTextActiveColor: $primary-text-color !default; // Synced
+$buttonActiveBorderColor: $color-bg-primary-pressed !default; // Synced
+$raisedButtonShadow: rgba(#000000, 0.25), $color-shadow-button2;
+$raisedButtonBoxShadow:
+  0px 1px 5px 0px rgba(0, 0, 0, 0.25),
+  0px 2px 2px 0px rgba(37, 37, 39, 0.14),
+  0px 3px 1px -2px rgba(37, 37, 39, 0.2);
+$roundedButtonBorderRadius: $rounded-full; // Synced
+$selectButtonPadding: $padding-1-5 $padding-3 !default; // Synced
+$selectButtonFontSize: $font-sm !default; // Synced
+
+$textButtonHoverBgOpacity: 0.04 !default;
+$textButtonActiveBgOpacity: 0.16 !default;
+$outlinedButtonBorder: 1px solid !default;
+$plainButtonTextColor: $textSecondaryColor !default;
+$plainButtonHoverBgColor: $shade200 !default;
+$plainButtonActiveBgColor: $shade300 !default;
+
+$secondaryButtonBg: $color-bg-primary-light !default; // Synced
+$secondaryButtonTextColor: $color-bg-primary !default; // Synced
+$secondaryButtonBorder: 1px solid $secondaryButtonBg !default; // Synced
+$secondaryButtonHoverBg: $color-bg-primary-light-hover !default; // Synced
+$secondaryButtonTextHoverColor: $secondaryButtonTextColor !default; // Synced
+$secondaryButtonHoverBorderColor: $color-bg-primary-light-hover !default; // Synced
+$secondaryButtonActiveBg: $color-bg-primary-light-pressed !default; // Synced
+$secondaryButtonTextActiveColor: $secondaryButtonTextColor !default; // Synced
+$secondaryButtonActiveBorderColor: $color-bg-primary-light-pressed !default; // Synced
+$secondaryButtonFocusShadow: 0 0 0 0.2rem white; // Synced
+
+$infoButtonBg: $color-bg-info !default; // Synced
+$infoButtonTextColor: #ffffff !default; // Synced
+$infoButtonBorder: 1px solid $infoButtonBg !default; // Synced
+$infoButtonHoverBg: $color-bg-info-hover !default; // Synced
+$infoButtonTextHoverColor: $infoButtonTextColor !default; // Synced
+$infoButtonHoverBorderColor: $color-bg-info-hover !default; // Synced
+$infoButtonActiveBg: $color-bg-info-pressed !default; // Synced
+$infoButtonTextActiveColor: $infoButtonTextColor !default; // Synced
+$infoButtonActiveBorderColor: $color-bg-info-pressed !default; // Synced
+$infoButtonFocusShadow: 0 0 0 0.2rem white; // Synced
+
+$successButtonBg: $color-bg-success !default; // Synced
+$successButtonTextColor: #ffffff !default; // Synced
+$successButtonBorder: 1px solid $successButtonBg !default; // Synced
+$successButtonHoverBg: $color-bg-success-hover !default; // Synced
+$successButtonTextHoverColor: $successButtonTextColor !default; // Synced
+$successButtonHoverBorderColor: $color-bg-success-hover !default; // Synced
+$successButtonActiveBg: $color-bg-success-pressed !default; // Synced
+$successButtonTextActiveColor: $successButtonTextColor !default; // Synced
+$successButtonActiveBorderColor: $color-bg-success-pressed !default; // Synced
+$successButtonFocusShadow: 0 0 0 0.2rem white; // Synced
+
+$warningButtonBg: $color-bg-warning !default; // Synced
+$warningButtonTextColor: #ffffff !default; // Synced
+$warningButtonBorder: 1px solid $warningButtonBg !default; // Synced
+$warningButtonHoverBg: $color-bg-warning-hover !default; // Synced
+$warningButtonTextHoverColor: $warningButtonTextColor !default; // Synced
+$warningButtonHoverBorderColor: $color-bg-warning-hover !default; // Synced
+$warningButtonActiveBg: $color-bg-warning-pressed !default; // Synced
+$warningButtonTextActiveColor: $warningButtonTextColor !default; // Synced
+$warningButtonActiveBorderColor: $color-bg-warning-pressed !default; // Synced
+$warningButtonFocusShadow: 0 0 0 0.2rem white; // Synced
+
+$helpButtonBg: $color-bg-discovery !default; // Synced
+$helpButtonTextColor: #ffffff !default; // Synced
+$helpButtonBorder: 1px solid $helpButtonBg !default; // Synced
+$helpButtonHoverBg: $color-bg-discovery-hover !default; // Synced
+$helpButtonTextHoverColor: $helpButtonTextColor !default; // Synced
+$helpButtonHoverBorderColor: $color-bg-discovery-hover !default; // Synced
+$helpButtonActiveBg: $color-bg-discovery-pressed !default; // Synced
+$helpButtonTextActiveColor: $helpButtonTextColor !default; // Synced
+$helpButtonActiveBorderColor: $color-bg-discovery-pressed !default; // Synced
+$helpButtonFocusShadow: 0 0 0 0.2rem white; // Synced
+
+$dangerButtonBg: $color-bg-danger !default; // Synced
+$dangerButtonTextColor: #ffffff !default; // Synced
+$dangerButtonBorder: 1px solid $dangerButtonBg !default; // Synced
+$dangerButtonHoverBg: $color-bg-danger-hover !default; // Synced
+$dangerButtonTextHoverColor: $dangerButtonTextColor !default; // Synced
+$dangerButtonHoverBorderColor: $color-bg-danger-hover !default; // Synced
+$dangerButtonActiveBg: $color-bg-danger-pressed !default; // Synced
+$dangerButtonTextActiveColor: $dangerButtonTextColor !default; // Synced
+$dangerButtonActiveBorderColor: $color-bg-danger-pressed !default; // Synced
+$dangerButtonFocusShadow: 0 0 0 0.2rem white; // Synced
+
+$linkButtonColor: $primary-color !default; // Synced
+$linkButtonHoverColor: $primary-color !default; // Synced
+$linkButtonTextHoverDecoration: underline !default; // Synced
+$linkButtonFocusShadow: 0 0 0 0.2rem $focusOutlineColor !default; // Synced
+
+//checkbox
+$checkboxWidth: $sizing-5 !default; // Synced
+$checkboxHeight: $sizing-5 !default; // Synced
+$checkboxBorder: $stroke-2 solid $color-border-neutral !default; // Synced
+$checkboxIconFontSize: $font-sm !default; // Synced
+$checkboxActiveBorderColor: $primary-color !default; // Synced
+$checkboxActiveBg: $primary-color !default; // Synced
+$checkboxIconActiveColor: $primary-text-color !default; // Synced
+$checkboxActiveHoverBg: $color-bg-primary-hover !default; // Synced
+$checkboxIconActiveHoverColor: $primary-text-color !default; // Synced
+$checkboxActiveHoverBorderColor: $color-bg-primary-hover !default; // Synced
+$checkboxHoverBg: $color-bg-primary-light-hover !default; // Synced
+$checkboxHoverBorderColor: $color-border-primary-hover !default; // Synced
+$checkboxDisabledBg: $color-bg-disabled !default; // Synced
+$checkboxDisabledBorderColor: $color-bg-disabled !default; // Synced
+$checkboxHoverDisabledActiveBg: $color-bg-disabled-hover !default; // Synced
+$checkboxHoverDisabledActiveBorderColor: $color-bg-disabled-hover !default; // Synced
+
+//radiobutton
+//checkbox
+$radiobuttonWidth: $sizing-5 !default; // Synced
+$radiobuttonHeight: $sizing-5 !default; // Synced
+$radiobuttonBorder: $stroke-2 solid $color-border-neutral !default; // Synced
+$radiobuttonIconSize: $font-xs !default; // Synced
+$radiobuttonActiveBorderColor: $primary-color !default; // Synced
+$radiobuttonActiveBg: $primary-color !default; // Synced
+$radiobuttonIconActiveColor: $primary-text-color !default; // Synced
+$radiobuttonActiveHoverBg: $color-bg-primary-hover !default; // Synced
+$radiobuttonIconActiveHoverColor: $primary-text-color !default; // Synced
+$radiobuttonActiveHoverBorderColor: $color-bg-primary-hover !default; // Synced
+$radiobuttonHoverBg: $color-bg-primary-light-hover !default; // Synced
+$radiobuttonHoverBorderColor: $color-border-primary-hover !default; // Synced
+$radiobuttonDisabledBg: $color-bg-disabled !default; // Synced
+$radiobuttonDisabledBorderColor: $color-bg-disabled !default; // Synced
+$radiobuttonHoverDisabledActiveBg: $color-bg-disabled-hover !default; // Synced
+$radiobuttonHoverDisabledActiveBorderColor: $color-bg-disabled-hover !default; // Synced
+
+//colorpicker
+$colorPickerPreviewWidth: 2rem !default;
+$colorPickerPreviewHeight: 2rem !default;
+$colorPickerBg: $shade800 !default;
+$colorPickerBorder: 1px solid $shade900 !default;
+$colorPickerHandleColor: $shade000 !default;
+
+//togglebutton
+$toggleButtonBg: $inputBg !default; // Synced
+$toggleButtonBorder: 1px solid $shade400 !default; // Synced
+$toggleButtonTextColor: $shade700 !default; // Synced
+$toggleButtonIconColor: $shade600 !default; // Synced
+$toggleButtonHoverBg: $shade200 !default; // Synced
+$toggleButtonHoverBorderColor: $shade400 !default; // Synced
+$toggleButtonTextHoverColor: $shade700 !default; // Synced
+$toggleButtonIconHoverColor: $shade600 !default; // Synced
+$toggleButtonActiveBg: $primary-color !default; // Synced
+$toggleButtonActiveBorderColor: $primary-color !default; // Synced
+$toggleButtonTextActiveColor: $primary-text-color !default; // Synced
+$toggleButtonIconActiveColor: $primary-text-color !default; // Synced
+$toggleButtonActiveHoverBg: $primary-dark-color !default; // Synced
+$toggleButtonActiveHoverBorderColor: $primary-dark-color !default; // Synced
+$toggleButtonTextActiveHoverColor: $primary-text-color !default; // Synced
+$toggleButtonIconActiveHoverColor: $primary-text-color !default; // Synced
+
+//inplace
+$inplacePadding: $inputPadding !default; // Synced
+$inplaceHoverBg: $color-bg-container !default; // Synced
+$inplaceTextHoverColor: $color-text-black !default; // Synced
+
+//rating
+$ratingIconFontSize: $font-base !default; // Synced
+$ratingCancelIconColor: $color-icon-disabled !default; // Synced
+$ratingCancelIconHoverColor: $color-icon-disabled-hover !default; // Synced
+$ratingStarIconOffColor: $shade700 !default; // Synced
+$ratingStarIconOnColor: $primary-color !default; // Synced
+$ratingStarIconHoverColor: $primary-color !default; // Synced
+
+//slider
+$sliderBg: $color-icon-neutral !default; // Synced
+$sliderBorder: 0 none !default;
+$sliderHorizontalHeight: 0.286rem !default;
+$sliderVerticalWidth: 0.286rem !default;
+$sliderHandleWidth: 1.143rem !default;
+$sliderHandleHeight: 1.143rem !default;
+$sliderHandleBg: $shade000 !default;
+$sliderHandleBorder: 2px solid $primary-color !default; // Synced
+$sliderHandleBorderRadius: 50% !default;
+$sliderHandleHoverBorderColor: $primary-color !default; // Synced
+$sliderHandleHoverBg: $primary-color !default; // Synced
+$sliderRangeBg: $primary-color !default; // Synced
+
+//calendar
+$calendarTableMargin: 0.5rem 0 !default; // Synced
+$calendarPadding: 0.5rem !default; // Synced
+$calendarBg: $shade000 !default; // Synced
+$calendarInlineBg: $calendarBg !default; // Synced
+$calendarTextColor: $color-text-black !default; // Synced
+$calendarBorder: $inputListBorder !default; // Synced
+$calendarOverlayBorder: $inputOverlayBorder !default; // Synced
+
+$calendarHeaderPadding: 0.5rem !default; // Synced
+$calendarHeaderBg: $shade000 !default; // Synced
+$calendarInlineHeaderBg: $calendarBg !default; // Synced
+$calendarHeaderBorder: 1px solid $color-border-neutral !default; // Synced
+$calendarHeaderTextColor: $color-text-gray !default; // Synced
+$calendarHeaderFontWeight: $font-800 !default; // Synced
+$calendarHeaderCellPadding: 0.75rem 1rem !default; // Synced
+$calendarMonthYearHeaderHoverTextColor: $color-text-gray !default; // Synced
+
+$calendarCellDatePadding: $padding-2 $padding-3 !default; // Synced
+$calendarCellDateWidth: 2rem !default; // Synced
+$calendarCellDateHeight: 2rem !default; // Synced
+$calendarCellDateBorderRadius: 50% !default; // Synced
+$calendarCellDateBorder: 1px solid transparent !default; // Synced
+$calendarCellDateHoverBg: $color-bg-neutral-hover !default; // Synced
+$calendarCellDateTodayBg: $color-bg-primary-light !default; // Synced
+$calendarCellDateTodayBorderColor: 1px solid $color-border-primary !default; // Synced
+$calendarCellDateTodayTextColor: $color-text-primary !default; // Synced
+
+$calendarButtonBarPadding: 0.5rem 0 !default; // Synced
+$calendarTimePickerPadding: 0.5rem !default; // Synced
+$calendarTimePickerElementPadding: 0 0.5rem !default; // Synced
+$calendarTimePickerTimeFontSize: 1.125rem !default; // Synced
+
+$calendarBreakpoint: 769px !default;
+$calendarCellDatePaddingSM: 0 !default;
+
+//input switch
+$h: 3rem !default;
+$inputSwitchWidth: $sizing-10 !default; // Synced
+$inputSwitchHeight: $sizing-5 !default; // Synced
+$inputSwitchBorderRadius: $rounded-4xl !default; // Synced
+$inputSwitchHandleWidth: $sizing-4 !default; // Synced
+$inputSwitchHandleHeight: $sizing-4 !default; // Synced
+$inputSwitchHandleBorderRadius: 50% !default; // Synced
+$inputSwitchSliderPadding: $padding-1 !default; // Synced
+$inputSwitchSliderOffBg: $shade400 !default; // Synced
+$inputSwitchHandleOffBg: $shade000 !default; // Synced
+$inputSwitchSliderOffHoverBg: $color-icon-light-hover; // Synced
+$inputSwitchSliderOnBg: $primary-color !default; // Synced
+$inputSwitchSliderOnHoverBg: $primary-dark-color !default; // Synced
+$inputSwitchHandleOnBg: $shade000 !default; // Synced
+
+$inputSwitchHoverBg: $color-bg-primary-light-hover !default; // Synced
+$inputSwitchDisabledBg: $color-bg-disabled !default; // Synced
+$inputSwitchHoverDisabledActiveBg: $color-bg-disabled-hover !default; // Synced
+
+//panel
+$panelHeaderBorderColor: $color-border-neutral !default; // Synced
+$panelHeaderBorder: 1px solid $color-border-neutral !default; // Synced
+$panelHeaderBg: #ffffff !default; // Synced
+$panelHeaderTextColor: $color-text-black !default; // Synced
+$panelHeaderFontWeight: $font-800 !default; // Synced
+$panelHeaderPadding: $padding-4 !default; // Synced
+$panelToggleableHeaderPadding: $padding-3 $padding-4 !default; // Synced
+
+$panelHeaderHoverBg: $color-bg-container-hover !default; // Synced
+$panelHeaderHoverBorderColor: none !default; // Synced
+$panelHeaderTextHoverColor: $color-text-black !default; // Synced
+
+$panelContentBorderColor: 1px solid $color-border-neutral !default; // Synced
+$panelContentBorder: 1px solid $color-border-neutral !default; // Synced
+$panelContentBg: #ffffff !default; // Synced
+$panelContentEvenRowBg: scale-color($panelContentBg, $lightness: -1%) !default;
+$panelContentTextColor: $color-text-black !default; // Synced
+$panelContentTextColorWeak: $color-icon-red !default; // Synced
+$panelContentTextColorMedium: $color-icon-yellow !default; // Synced
+$panelContentTextColorStrong: $color-icon-green !default; // Synced
+$panelContentPadding: $padding-4 !default; // Synced
+
+$panelFooterBorder: 1px solid $color-border-neutral !default; // Synced
+$panelFooterBg: #ffffff !default; // Synced
+$panelFooterTextColor: $color-text-black !default; // Synced
+$panelFooterPadding: $padding-3 $padding-4 !default; // Synced
+
+//accordion
+$accordionSpacing: $spacing-1 !default; // Synced
+$accordionHeaderBorder: 1px solid $color-border-neutral !default; // Synced
+$accordionHeaderBg: $color-bg-container-inverse !default; // Synced
+$accordionHeaderTextColor: $color-text-black !default; // Synced
+$accordionHeaderFontWeight: $font-800 !default; // Synced
+$accordionHeaderPadding: $panelHeaderPadding !default; // Synced
+
+$accordionHeaderHoverBg: $color-bg-container-hover !default; // Synced
+$accordionHeaderHoverBorderColor: none !default; // Synced
+$accordionHeaderTextHoverColor: $color-text-black !default; // Synced
+
+$accordionHeaderActiveBg: $color-bg-container-hover !default; // Synced
+$accordionHeaderActiveBorderColor: $color-border-neutral !default; // Synced
+$accordionHeaderTextActiveColor: $color-text-black !default; // Synced
+
+$accordionHeaderActiveHoverBg: $color-bg-container-hover !default; // Synced
+$accordionHeaderActiveHoverBorderColor: $color-border-neutral !default; // Synced
+$accordionHeaderTextActiveHoverColor: $color-text-black !default; // Synced
+
+$accordionContentBorder: 1px solid $color-border-neutral !default; // Synced
+$accordionContentBg: $color-bg-container-inverse !default; // Synced
+$accordionContentTextColor: $color-text-black !default; // Synced
+$accordionContentPadding: $padding-3 $padding-4 !default; // Synced
+
+//tabview
+$tabviewNavBorder: 2px solid $color-border-neutral !default; // Synced
+$tabviewNavBorderWidth: 0 0 2px 0 !default; // Synced
+$tabviewNavBg: $color-bg-container-inverse !default; // Synced
+
+$tabviewHeaderSpacing: 0 !default; // Synced
+$tabviewHeaderBorder: solid $color-border-neutral !default; // Synced
+$tabviewHeaderBorderWidth: 0 0 3px 0 !default; // Synced * Bottom border (2px) + 1
+$tabviewHeaderBorderColor: transparent transparent $color-border-neutral transparent !default; // Synced
+$tabviewHeaderBg: $color-bg-container-inverse !default; // Synced
+$tabviewHeaderTextColor: $color-text-black !default; // Synced
+$tabviewHeaderFontWeight: $font-800 !default; // Synced
+$tabviewHeaderPadding: $panelHeaderPadding !default; // Synced
+$tabviewHeaderMargin: 0 0 -2px 0 !default; // Synced
+
+$tabviewHeaderHoverBg: $color-bg-neutral-hover !default; // Synced
+$tabviewHeaderHoverBorderColor: $color-border-neutral-hover !default; // Synced
+$tabviewHeaderTextHoverColor: $color-text-black !default; // Synced
+
+$tabviewHeaderActiveBg: $color-bg-primary-light !default; // Synced
+$tabviewHeaderActiveBorderColor: $primary-color !default; // Synce // Syncedd
+$tabviewHeaderTextActiveColor: $primary-color !default;
+
+$tabviewContentBorder: 0 none !default; // Synced
+$tabviewContentBg: $panelContentBg !default; // Synced
+$tabviewContentTextColor: $panelContentTextColor !default; // Synced
+$tabviewContentPadding: $panelContentPadding !default; // Synced
+
+//upload
+$fileUploadProgressBarHeight: $sizing-1-5 !default; // Synced
+$fileUploadContentPadding: $padding-7 $padding-4 !default; // Synced
+
+//scrollpanel
+$scrollPanelTrackBorder: 0 none !default; // Synced
+$scrollPanelTrackBg: $color-icon-light !default; // Synced
+
+//card
+$cardBodyPadding: $padding-4 !default; // Synced
+$cardTitleFontSize: $font-3xl !default; // Synced
+$cardTitleFontWeight: $font-800 !default; // Synced
+$cardSubTitleFontWeight: $font-800 !default; // Synced
+$cardSubTitleColor: $color-text-gray !default; // Synced
+$cardContentPadding: $padding-4 $padding-0 !default; // Synced
+$cardFooterPadding: $padding-4 $padding-0 $padding-0 $padding-0 !default; // Synced
+$cardShadow:
+  0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  0 1px 2px 0 rgba(0, 0, 0, 0.06) !default;
+
+//editor
+$editorToolbarBg: $panelHeaderBg !default; // Synced
+$editorToolbarBorder: $panelHeaderBorder !default; // Synced
+$editorToolbarPadding: $panelHeaderPadding !default; // Synced
+$editorToolbarIconColor: $color-icon-light !default; // Synced
+$editorToolbarIconHoverColor: $color-icon-gray !default; // Synced
+$editorIconActiveColor: $primary-color !default; // Synced
+$editorContentBorder: $panelContentBorder !default; // Synced
+$editorContentBg: $panelContentBg !default; // Synced
+
+//paginator
+$paginatorBg: $color-bg-container-inverse !default; // Synced
+$paginatorTextColor: $color-text-black !default; // Synced
+$paginatorBorder: none !default; // Synced
+$paginatorBorderWidth: 0 !default; // Synced
+$paginatorPadding: $padding-3 $padding-4 !default; // Synced
+$paginatorElementWidth: $buttonIconOnlyWidth !default; // Synced
+$paginatorElementHeight: $buttonIconOnlyWidth !default; // Synced
+$paginatorElementBg: transparent !default; // Synced
+$paginatorElementBorder: none !default; // Synced
+$paginatorElementIconColor: $color-text-black !default; // Synced
+$paginatorElementHoverBg: $color-bg-container-hover !default; // Synced
+$paginatorElementHoverBorderColor: $color-text-black !default; // Synced
+$paginatorElementIconHoverColor: $color-text-black !default; // Synced
+$paginatorElementBorderRadius: $rounded-full !default; // Synced
+$paginatorElementMargin: 0 $spacing-0-5 !default; // Synced
+$paginatorElementPadding: 0 !default; // Synced
+
+//table
+$tableHeaderBorder: 1px solid $color-border-neutral !default; // Synced
+$tableHeaderBorderWidth: 1px 0 1px 0 !default; // Synced
+$tableHeaderBg: $color-bg-container !default; // Synced
+$tableHeaderTextColor: $color-text-black !default; // Synced
+$tableHeaderFontWeight: $font-800 !default; // Synced
+$tableHeaderPadding: $padding-3-5 $padding-3-5 !default; // Synced
+
+$tableHeaderCellPadding: $padding-4 $padding-4 !default; // Synced
+$tableHeaderCellBg: $color-bg-container !default; // Synced
+$tableHeaderCellTextColor: $color-text-black !default; // Synced
+$tableHeaderCellFontWeight: $font-800 !default; // Synced
+$tableHeaderCellBorder: 1px solid $color-border-neutral !default; // Synced
+$tableHeaderCellBorderWidth: 0 0 1px 0 !default; // Synced
+$tableHeaderCellHoverBg: $color-bg-neutral !default; // Synced
+$tableHeaderCellTextHoverColor: $color-text-black !default; // Synced
+$tableHeaderCellIconColor: $color-text-black !default; // Synced
+$tableHeaderCellIconHoverColor: $color-icon-black !default; // Synced
+$tableHeaderCellHighlightBg: $color-bg-primary-light !default; // Synced
+$tableHeaderCellHighlightTextColor: $color-text-primary !default; // Synced
+$tableHeaderCellHighlightHoverBg: $color-bg-neutral !default; // Synced
+$tableHeaderCellHighlightTextHoverColor: $primary-color !default;
+$tableSortableColumnBadgeSize: 1.143rem !default;
+
+$tableBodyRowBg: #ffffff !default; // Synced - must use #ffffff for the default value
+$tableBodyRowTextColor: $color-text-black !default; // Synced
+$tableBodyRowEvenBg: scale-color($tableBodyRowBg, $lightness: -1%) !default;
+$tableBodyRowHoverBg: $color-bg-container-hover !default; // Synced
+$tableBodyRowTextHoverColor: $color-text-black !default; // Synced
+$tableBodyCellBorder: 1px solid $color-border-neutral !default; // Synced
+$tableBodyCellBorderWidth: 0 0 1px 0 !default; // Synced
+$tableBodyCellPadding: $padding-3 $padding-4 !default; // Synced
+
+$tableFooterCellPadding: 1rem 1rem !default;
+$tableFooterCellBg: $shade100 !default;
+$tableFooterCellTextColor: $color-text-black !default; // Synced
+$tableFooterCellFontWeight: $font-600 !default;
+$tableFooterCellBorder: 1px solid $color-border-neutral !default; // Synced
+$tableFooterCellBorderWidth: 0 0 1px 0 !default;
+$tableResizerHelperBg: $primary-color !default;
+$tableDragHelperBg: rgba($primary-color, 0.16) !default;
+
+$tableFooterBorder: 1px solid $color-border-neutral !default; // Synced
+$tableFooterBorderWidth: 0 0 1px 0 !default;
+$tableFooterBg: $shade100 !default;
+$tableFooterTextColor: $shade700 !default;
+$tableFooterFontWeight: $font-600 !default;
+$tableFooterPadding: $padding-3-5 $padding-3-5 !default; // Synced
+
+$tableCellContentAlignment: left !default;
+$tableTopPaginatorBorderWidth: 0 0 1px 0 !default;
+$tableBottomPaginatorBorderWidth: 0 0 1px 0 !default;
+
+$tableScaleSM: 0.5 !default;
+$tableScaleLG: 1.25 !default;
+
+//dataview
+$dataViewContentPadding: 0 !default;
+$dataViewContentBorder: 0 none !default;
+$dataViewListItemBorder: solid $shade200 !default;
+$dataViewListItemBorderWidth: 0 0 1px 0 !default;
+
+//tree
+$treeContainerPadding: 0 !default; // Synced
+$treeNodePadding: 0 !default; // Synced
+$treeNodeContentPadding: $padding-2 !default; // Synced
+$treeNodeChildrenPadding: 0 0 0 $padding-4 !default; // Synced
+$treeNodeIconColor: $color-text-black !default; // Synced
+
+//timeline
+$timelineVerticalEventContentPadding: 0 1rem !default;
+$timelineHorizontalEventContentPadding: 1rem 0 !default;
+$timelineEventMarkerWidth: 1rem !default;
+$timelineEventMarkerHeight: 1rem !default;
+$timelineEventMarkerBorderRadius: 50% !default;
+$timelineEventMarkerBorder: 2px solid $primary-color !default;
+$timelineEventMarkerBackground: $shade000 !default;
+$timelineEventConnectorSize: 2px !default;
+$timelineEventColor: $shade300 !default;
+
+//org chart
+$organizationChartConnectorColor: $shade300 !default;
+
+//message
+$messageMargin: $spacing-3 0 !default; // Synced
+$messagePadding: $padding-4 $padding-6 !default; // Synced
+$messageBorderWidth: 0 0 0 6px !default; // Synced
+$messageIconFontSize: 1.25rem !default; // Synced
+$messageTextFontSize: 1rem !default;
+$messageTextFontWeight: 500 !default;
+
+//inline message
+$inlineMessagePadding: $padding-2 $padding-3 !default; // Synced
+$inlineMessageMargin: 0 !default; // Synced
+$inlineMessageIconFontSize: $font-sm !default; // Synced
+$inlineMessageTextFontSize: $font-sm !default; // Synced
+$inlineMessageBorderWidth: 0px !default; // Synced
+
+//toast
+$toastIconFontSize: 0.875rem !default; // Synced
+$toastMessageTextMargin: 0 0 0 0.75rem !default; // Synced
+$toastMargin: 0 0 0.75rem 0 !default; // Synced
+$toastPadding: 0.75rem 1rem !default; // Synced
+$toastBorderWidth: 0 0 0 6px !default;
+$toastShadow:
+  0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 10px 10px -5px rgba(0, 0, 0, 0.04) !default; // Synced
+$toastOpacity: 1 !default; // Synced
+$toastTitleFontWeight: $font-800 !default; // Synced
+$toastDetailMargin: $gap-1 0 0 0 !default; // Synced
+$toastMessageWidth: number(338) !default; // Synced
+
+//severities
+$infoMessageBg: $color-bg-info-light !default; // Synced
+$infoMessageBorder: 0px solid $color-border-info !default; // Synced
+$infoMessageTextColor: $color-text-info !default; // Synced
+$infoMessageIconColor: $color-icon-info !default; // Synced
+$successMessageBg: $color-bg-success-light !default; // Synced
+$successMessageBorder: 0 solid $color-border-success !default; // Synced
+$successMessageTextColor: $color-text-success !default; // Synced
+$successMessageIconColor: $color-icon-success !default; // Synced
+$warningMessageBg: $color-bg-warning-light !default; // Synced
+$warningMessageBorder: 0 solid $color-border-warning !default; // Synced
+$warningMessageTextColor: $color-text-warning !default; // Synced
+$warningMessageIconColor: $color-icon-warning !default; // Synced
+$errorMessageBg: $color-bg-danger-light !default; // Synced
+$errorMessageBorder: 0 solid $color-border-danger !default; // Synced
+$errorMessageTextColor: $color-text-danger !default; // Synced
+$errorMessageIconColor: $color-icon-danger !default; // Synced
+
+//overlays
+$overlayContentBorder: 0 none !default;
+$overlayContentBg: $panelContentBg !default;
+$overlayContainerShadow:
+  0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 10px 10px -5px rgba(0, 0, 0, 0.04) !default;
+
+//dialog
+$dialogHeaderBg: $color-bg-container-inverse !default; // Synced
+$dialogHeaderBorder: 0 none !default; // Synced
+$dialogHeaderTextColor: $color-text-black !default; // Synced
+$dialogHeaderFontWeight: $font-800 !default; // Synced
+$dialogHeaderFontSize: $font-xl !default; // Synced
+$dialogHeaderPadding: $padding-6 !default; // Synced
+$dialogContentPadding: 0 $padding-6 $padding-6 $padding-6 !default; // Synced
+$dialogFooterBorder: 0 none !default; // Synced
+$dialogFooterPadding: 0 $padding-6 $padding-6 $padding-6 !default; // Synced
+
+//confirmpopup
+$confirmPopupContentPadding: $panelContentPadding !default;
+$confirmPopupFooterPadding: 0 1rem 1rem 1rem !default;
+
+//tooltip
+$tooltipBg: $color-bg-dark !default; // Synced
+$tooltipTextColor: $color-text-inverse !default; // Synced
+$tooltipPadding: $inputPadding !default; // Synced
+
+//steps
+$stepsItemBg: $color-icon-inverse !default; // Synced
+$stepsItemBorder: 1px solid $color-border-neutral !default; // Synced
+$stepsItemTextColor: $color-text-gray !default; // Synced
+$stepsItemNumberWidth: $sizing-7 !default; // Synced
+$stepsItemNumberHeight: $sizing-7 !default; // Synced
+$stepsItemNumberFontSize: $font-base !default; // Synced
+$stepsItemNumberColor: $color-icon-inverse !default; // Synced
+$stepsItemNumberBorderRadius: $rounded-full !default; // Synced
+$stepsItemActiveFontWeight: $font-800 !default; // Synced
+
+//progressbar
+$progressBarHeight: $sizing-5 !default; // Synced
+$progressBarBorder: 0 none !default; // Synced
+$progressBarBg: $color-icon-neutral !default; // Synced
+$progressBarValueBg: $primary-color !default; // Synced
+$progressBarValueTextColor: $primary-text-color !default; // Synced
+
+//menu (e.g. menu, menubar, tieredmenu)
+$menuWidth: number(175) !default; // Synced
+$menuBg: $color-bg-container-inverse !default; // Synced
+$menuBorder: 1px solid $color-border-neutral !default; // Synced
+$menuTextColor: $color-text-black !default;
+$menuitemPadding: $padding-2 $padding-4 !default; // Synced
+$menuitemBorderRadius: 0 !default; // Synced
+$menuitemTextColor: $color-text-black !default; // Synced
+$menuitemIconColor: $color-text-black !default; // Synced
+$menuitemTextHoverColor: $color-text-black !default; // Synced
+$menuitemIconHoverColor: $color-text-black !default; // Synced
+$menuitemHoverBg: $color-bg-container !default; // Synced
+$menuitemTextFocusColor: $color-text-primary !default; // Synced
+$menuitemIconFocusColor: $color-text-primary !default; // Synced
+$menuitemFocusBg: $color-bg-primary-light !default; // Synced
+$menuitemTextActiveColor: $color-text-primary !default; // Synced
+$menuitemIconActiveColor: $color-text-primary !default; // Synced
+$menuitemActiveBg: $color-bg-primary-light !default; // Synced
+$menuitemActiveFocusBg: $color-bg-primary-light !default; // Synced
+$menuitemSubmenuIconFontSize: $font-sm !default; // Synced
+$submenuHeaderMargin: 0 !default; // Synced
+$submenuHeaderPadding: $padding-2-5 $padding-4 !default; // Synced
+$submenuHeaderBg: $shade000 !default; // Synced
+$submenuHeaderTextColor: $color-text-black !default; // Synced
+$submenuHeaderBorderRadius: 0 !default; // Synced
+$submenuHeaderFontWeight: $font-800 !default; // Synced
+$overlayMenuBg: $menuBg !default; // Synced
+$overlayMenuBorder: 0 none !default;
+$overlayMenuShadow:
+  0 0 #0000,
+  0 0 #0000,
+  0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05) !default;
+$verticalMenuPadding: 0.25rem 0 !default;
+$menuSeparatorMargin: 0.25rem 0 !default;
+
+$breadcrumbPadding: $padding-3 $padding-4 !default; // Synced
+$breadcrumbBg: $color-bg-container-inverse !default; // Synced
+$breadcrumbBorder: 1px solid $color-border-neutral !default; // Synced
+$breadcrumbItemTextColor: $color-text-gray !default; // Synced
+$breadcrumbItemIconColor: $color-text-black !default; // Synced
+$breadcrumbLastItemTextColor: $color-text-primary !default; // Synced
+$breadcrumbLastItemIconColor: $color-text-black !default; // Synced
+$breadcrumbSeparatorColor: $menuitemTextColor !default; // Synced
+
+$horizontalMenuPadding: 1rem !default;
+$horizontalMenuBg: $shade100 !default;
+$horizontalMenuBorder: $menuBorder !default;
+$horizontalMenuTextColor: $menuTextColor !default;
+$horizontalMenuRootMenuitemPadding: $menuitemPadding !default;
+$horizontalMenuRootMenuitemBorderRadius: $borderRadius !default;
+$horizontalMenuRootMenuitemTextColor: $menuitemTextColor !default;
+$horizontalMenuRootMenuitemIconColor: $menuitemIconColor !default;
+$horizontalMenuRootMenuitemTextHoverColor: $menuitemTextHoverColor !default;
+$horizontalMenuRootMenuitemIconHoverColor: $menuitemIconHoverColor !default;
+$horizontalMenuRootMenuitemHoverBg: $menuitemHoverBg !default;
+$horizontalMenuRootMenuitemTextActiveColor: $menuitemTextActiveColor !default;
+$horizontalMenuRootMenuitemIconActiveColor: $menuitemIconActiveColor !default;
+$horizontalMenuRootMenuitemActiveBg: $menuitemActiveBg !default;
+
+//badge and tag
+$badgeBg: $primary-color !default; // Synced
+$badgeTextColor: $primary-text-color !default; // Synced
+$badgeMinWidth: $sizing-5 !default; // Synced
+$badgeHeight: $sizing-5 !default; // Synced
+$badgeFontWeight: $font-800 !default; // Synced
+$badgeFontSize: $font-xs !default; // Synced
+
+$tagPadding: $padding-1 $padding-2 !default; // Synced
+
+//carousel
+$carouselIndicatorsPadding: $padding-3-5 !default; // Synced
+$carouselIndicatorBg: $color-icon-light !default; // Synced
+$carouselIndicatorHoverBg: $color-icon-light-hover !default; // Synced
+$carouselIndicatorBorderRadius: 0 !default; // Synced
+$carouselIndicatorWidth: $sizing-7 !default; // Synced
+$carouselIndicatorHeight: $sizing-2 !default; // Synced
+
+//galleria
+$galleriaMaskBg: rgba(0, 0, 0, 0.9) !default;
+$galleriaCloseIconMargin: 0.5rem !default;
+$galleriaCloseIconFontSize: 2rem !default;
+$galleriaCloseIconBg: transparent !default;
+$galleriaCloseIconColor: $shade100 !default;
+$galleriaCloseIconHoverBg: rgba(255, 255, 255, 0.1) !default;
+$galleriaCloseIconHoverColor: $shade100 !default;
+$galleriaCloseIconWidth: 4rem !default;
+$galleriaCloseIconHeight: 4rem !default;
+$galleriaCloseIconBorderRadius: 50% !default;
+
+$galleriaItemNavigatorBg: transparent !default;
+$galleriaItemNavigatorColor: $shade100 !default;
+$galleriaItemNavigatorMargin: 0 0.5rem !default;
+$galleriaItemNavigatorFontSize: 2rem !default;
+$galleriaItemNavigatorHoverBg: rgba(255, 255, 255, 0.1) !default;
+$galleriaItemNavigatorHoverColor: $shade100 !default;
+$galleriaItemNavigatorWidth: 4rem !default;
+$galleriaItemNavigatorHeight: 4rem !default;
+$galleriaItemNavigatorBorderRadius: $borderRadius !default;
+
+$galleriaCaptionBg: rgba(0, 0, 0, 0.5) !default;
+$galleriaCaptionTextColor: $shade100 !default;
+$galleriaCaptionPadding: 1rem !default;
+
+$galleriaIndicatorsPadding: $padding-3-5 !default;
+$galleriaIndicatorBg: $color-icon-light !default; // Synced
+$galleriaIndicatorHoverBg: $color-icon-light-hover !default; // Synced
+$galleriaIndicatorBorderRadius: $rounded-full !default; // Synced
+$galleriaIndicatorWidth: $sizing-3-5 !default; // Synced
+$galleriaIndicatorHeight: $sizing-3-5 !default; // Synced
+$galleriaIndicatorsBgOnItem: rgba(0, 0, 0, 0.5) !default;
+$galleriaIndicatorBgOnItem: rgba(255, 255, 255, 0.4) !default;
+$galleriaIndicatorHoverBgOnItem: rgba(255, 255, 255, 0.6) !default;
+
+$galleriaThumbnailContainerBg: rgba(0, 0, 0, 0.9) !default;
+$galleriaThumbnailContainerPadding: 1rem 0.25rem !default;
+$galleriaThumbnailNavigatorBg: transparent !default;
+$galleriaThumbnailNavigatorColor: $shade100 !default;
+$galleriaThumbnailNavigatorHoverBg: rgba(255, 255, 255, 0.1) !default;
+$galleriaThumbnailNavigatorHoverColor: $shade100 !default;
+$galleriaThumbnailNavigatorBorderRadius: 50% !default;
+$galleriaThumbnailNavigatorWidth: 2rem !default;
+$galleriaThumbnailNavigatorHeight: 2rem !default;
+
+//divider
+$dividerHorizontalMargin: $spacing-4 0 !default; // Synced
+$dividerHorizontalPadding: 0 $padding-4 !default; // Synced
+$dividerVerticalMargin: 0 $spacing-4 !default; // Synced
+$dividerVerticalPadding: $padding-4 0 !default; // Synced
+$dividerSize: 1px !default; // Synced
+$dividerColor: $shade300 !default; // Synced
+
+//avatar
+$avatarBg: $shade600 !default; // Synced
+$avatarTextColor: #4b5563 !default; // Synced -- Temporary
+
+//chip
+$chipBg: $color-bg-primary !default; // Synced
+$chipTextColor: $color-text-inverse !default; // Synced
+$chipBorderRadius: $rounded-full !default; // Synced
+$chipFocusBg: $color-bg-primary-hover !default; // Synced
+$chipFocusTextColor: $color-text-inverse !default; // Synced
+
+//scrollTop
+$scrollTopBg: $color-bg-primary !default; // Synced
+$scrollTopHoverBg: $color-bg-primary-hover !default; // Synced
+$scrollTopWidth: $sizing-10 !default; // Synced
+$scrollTopHeight: $sizing-10 !default; // Synced
+$scrollTopBorderRadius: $rounded-full !default; // Synced
+$scrollTopFontSize: 8px !default; // Synced
+$scrollTopTextColor: $color-icon-inverse !default; // Synced
+
+//skeleton
+$skeletonBg: var(--surface-border) !default; // Synced
+$skeletonAnimationBg: rgba(255, 255, 255, 0.4) !default; // Synced
+
+//splitter
+$splitterGutterBg: $color-icon-neutral !default; // Synced
+$splitterGutterHandleBg: $color-icon-gray !default; // Synced
+
+//speeddial
+$speedDialButtonWidth: 4rem !default;
+$speedDialButtonHeight: 4rem !default;
+$speedDialButtonIconFontSize: 1.3rem !default;
+$speedDialActionWidth: 3rem !default;
+$speedDialActionHeight: 3rem !default;
+$speedDialActionBg: $shade700 !default;
+$speedDialActionHoverBg: $shade800 !default;
+$speedDialActionTextColor: #fff !default;
+$speedDialActionTextHoverColor: #fff !default;
+
+//dock
+$dockActionWidth: 4rem !default;
+$dockActionHeight: 4rem !default;
+$dockItemPadding: 0.5rem !default;
+$dockItemBorderRadius: $borderRadius !default;
+$dockCurrentItemMargin: 1.5rem !default;
+$dockFirstItemsMargin: 1.3rem !default;
+$dockSecondItemsMargin: 0.9rem !default;
+$dockBg: rgba(255, 255, 255, 0.1) !default;
+$dockBorder: 1px solid rgba(255, 255, 255, 0.2) !default;
+$dockPadding: 0.5rem 0.5rem !default;
+$dockBorderRadius: 0.5rem !default;
+
+//image
+$imageMaskBg: rgba(0, 0, 0, 0.9) !default;
+$imagePreviewToolbarPadding: 1rem !default;
+$imagePreviewIndicatorColor: #f8f9fa !default;
+$imagePreviewIndicatorBg: rgba(0, 0, 0, 0.5) !default;
+$imagePreviewActionIconBg: transparent !default;
+$imagePreviewActionIconColor: #f8f9fa !default;
+$imagePreviewActionIconHoverBg: rgba(255, 255, 255, 0.1) !default;
+$imagePreviewActionIconHoverColor: #f8f9fa !default;
+$imagePreviewActionIconWidth: 3rem !default;
+$imagePreviewActionIconHeight: 3rem !default;
+$imagePreviewActionIconFontSize: 1.5rem !default;
+$imagePreviewActionIconBorderRadius: 50% !default;
+
+:root {
+  --surface-a: #{$shade000};
+  --surface-b: #{$shade100};
+  --surface-c: #{$shade200};
+  --surface-d: #{$shade300};
+  --surface-e: #{$shade000};
+  --surface-f: #{$shade000};
+  --text-color: #{$shade700};
+  --text-color-secondary: #{$shade600};
+  --primary-color: #{$primary-color};
+  --primary-color-text: #{$primary-text-color};
+  --content-padding: #{$panelContentPadding};
+  --inline-spacing: #{$inlineSpacing};
+  --border-radius: #{$borderRadius};
+  --focus-ring: #{$focusShadow};
+  --maskbg: #{$maskBg};
+}

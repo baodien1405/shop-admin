@@ -1,0 +1,30 @@
+.p-inputswitch {
+  &:not(.p-highlight) {
+    &:hover {
+      .p-inputswitch-slider {
+        background-color: $color-icon-light-hover;
+        border-color: $color-icon-light-hover;
+      }
+    }
+  }
+  &.p-disabled {
+    opacity: 1;
+    .p-inputswitch-slider {
+      background-color: $color-bg-disabled;
+      border-color: $color-bg-disabled;
+    }
+    &:hover {
+      .p-inputswitch-slider {
+        background-color: $color-bg-primary-hover;
+        border-color: $color-bg-primary-hover;
+      }
+    }
+  }
+  .p-inputswitch-slider {
+    border: none;
+    &::before {
+      left: $sizing-0-5;
+      border: none;
+    }
+  }
+}

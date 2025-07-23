@@ -1,0 +1,13 @@
+.p-listbox {
+  box-shadow: 0 12px 12px 0 $color-shadow-overlay-input;
+  .p-listbox-list .p-listbox-item.p-highlight {
+    position: relative;
+    font-weight: $font-600;
+    &::after {
+      font-family: 'primeicons';
+      content: '\e909';
+      position: absolute;
+      right: $spacing-4;
+    }
+  }
+}

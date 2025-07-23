@@ -1,0 +1,141 @@
+@import './utils';
+:root {
+  --surface-0: #ffffff;
+  --surface-50: #fafafa;
+  --surface-100: #f4f4f5;
+  --surface-200: #e4e4e7;
+  --surface-300: #d4d4d8;
+  --surface-400: #a1a1aa;
+  --surface-500: #71717a;
+  --surface-600: #52525b;
+  --surface-700: #3f3f46;
+  --surface-800: #27272a;
+  --surface-900: #18181b;
+  --surface-ground: #fafafa;
+  --surface-section: #ffffff;
+  --surface-card: #ffffff;
+  --surface-overlay: #ffffff;
+  --surface-border: #e5e7eb;
+  --surface-hover: #f4f4f5;
+
+  --blue-25: #f5faff; // Synced
+  --blue-50: #e6f2ff; // Synced
+  --blue-100: #c6e0ff; // Synced
+  --blue-200: #9bcbfe; // Synced
+  --blue-300: #56abfe; // Synced
+  --blue-400: #067bfe; // Synced
+  --blue-500: #014abd; // Synced
+  --blue-600: #0133ae; // Synced
+  --blue-700: #0123ad; // Synced
+  --blue-800: #011a82; // Synced
+  --blue-900: #061d6d; // Synced
+  --blue-950: #081342; // Synced
+  --complementary-400: #f9fcfb; // Synced
+  --complementary-500: #f4f9f8; // Synced
+  --complementary-600: #b7dad4; // Synced
+  --complementary-700: #87c0b6; // Synced
+  --complementary-800: #69aea2; // Synced
+  --complementary-900: #5a9a90; // Synced
+  --complementary-950: #3b6764; // Synced
+  --green-25: #f7fffb; // Synced
+  --green-50: #eafff5; // Synced
+  --green-100: #ceffe9; // Synced
+  --green-200: #9bcbfe; // Synced
+  --green-300: #58ffb8; // Synced
+  --green-400: #06fd96; // Synced
+  --green-500: #00bf6f; // Synced
+  --green-600: #00a460; // Synced
+  --green-700: #007c49; // Synced
+  --green-800: #04613b; // Synced
+  --green-900: #055033; // Synced
+  --green-950: #002d1c; // Synced
+  --neutral-0: #ffffff; // Synced
+  --neutral-25: #fcfcfc; // Synced
+  --neutral-50: #f5f6f6; // Synced
+  --neutral-100: #e6e7e7; // Synced
+  --neutral-200: #cfd0d2; // Synced
+  --neutral-300: #aeb0b2; // Synced
+  --neutral-400: #85888b; // Synced
+  --neutral-500: #75787b; // Synced
+  --neutral-600: #5b5d5f; // Synced
+  --neutral-700: #4d4f51; // Synced
+  --neutral-800: #444546; // Synced
+  --neutral-900: #3b3c3e; // Synced
+  --neutral-950: #252527; // Synced
+  --purple-25: #fbfaff; // Synced
+  --purple-50: #f5f2ff; // Synced
+  --purple-100: #ebe8ff; // Synced
+  --purple-200: #dad4ff; // Synced
+  --purple-300: #c0b1ff; // Synced
+  --purple-400: #a085ff; // Synced
+  --purple-500: #8455ff; // Synced
+  --purple-600: #7330f7; // Synced
+  --purple-700: #651ee3; // Synced
+  --purple-800: #5418bf; // Synced
+  --purple-900: #46169c; // Synced
+  --purple-950: #2a0b6a; // Synced
+  --red-25: #fff8f9; // Synced
+  --red-50: #ffeef1; // Synced
+  --red-100: #ffd9e1; // Synced
+  --red-200: #ffb8c8; // Synced
+  --red-300: #ff87a1; // Synced
+  --red-400: #ff436c; // Synced
+  --red-500: #ff0037; // Synced
+  --red-600: #e00031; // Synced
+  --red-700: #bd0029; // Synced
+  --red-800: #9c0325; // Synced
+  --red-900: #800923; // Synced
+  --red-950: #46000f; // Synced
+  --yellow-25: #fffef7; // Synced
+  --yellow-50: #fefcec; // Synced
+  --yellow-100: #fffbcb; // Synced
+  --yellow-200: #fff699; // Synced
+  --yellow-300: #ffe95f; // Synced
+  --yellow-400: #ffdb3b; // Synced
+  --yellow-500: #ffcb19; // Synced
+  --yellow-600: #f1a800; // Synced
+  --yellow-700: #c17602; // Synced
+  --yellow-800: #9f5c0b; // Synced
+  --yellow-900: #874b11; // Synced
+  --yellow-950: #4f2605; // Synced
+  --gray-50: #f5f6f6; // Synced
+  --gray-100: #e6e7e7; // Synced
+  --gray-200: #cfd0d2; // Synced
+  --gray-300: #aeb0b2; // Synced
+  --gray-400: #85888b; // Synced
+  --gray-500: #75787b; // Synced
+  --gray-600: #5b5d5f; // Synced
+  --gray-700: #4d4f51; // Synced
+  --gray-800: #444546; // Synced
+  --gray-900: #3b3c3e; // Synced
+
+  // Primary color (Brand Color)
+  --primary-25: #f6fffd; // Synced
+  --primary-50: #e8fff9; // Synced
+  --primary-100: #afffee; // Synced
+  --primary-200: #5fffde; // Synced
+  --primary-300: #05fecc; // Synced
+  --primary-400: #0da58b; // Synced
+  --primary-500: #00816d; // Synced
+  --primary-600: #006859; // Synced
+  --primary-700: #005046; // Synced
+  --primary-800: #04413a; // Synced
+  --primary-900: #063630; // Synced
+  --primary-950: #00211f; // Synced
+  color-scheme: light;
+}
+
+$colors: (
+  'blue': #014abd,
+  'green': #00bf6f,
+  'yellow': #ffcb19,
+  'cyan': #06b6d4,
+  'pink': #ec4899,
+  'indigo': #6366f1,
+  'teal': #14b8a6,
+  'orange': #f97316,
+  'bluegray': #64748b,
+  'purple': #8455ff,
+  'red': #ff0037,
+  'primary': var(--primary-500)
+);

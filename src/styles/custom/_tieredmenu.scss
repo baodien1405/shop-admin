@@ -1,0 +1,12 @@
+.p-tieredmenu {
+  padding: $padding-2;
+  .p-menuitem.p-highlight > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    font-weight: $font-800;
+  }
+  .p-menuitem:not(.p-highlight):not(.p-disabled).p-focus > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    font-weight: $font-800;
+  }
+  .p-menuitem-text {
+    line-height: $leading-6;
+  }
+}

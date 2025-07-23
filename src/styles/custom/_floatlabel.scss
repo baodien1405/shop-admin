@@ -1,0 +1,17 @@
+.p-float-label {
+  label {
+    font-size: $font-sm;
+    font-weight: $font-600;
+    list-style: $leading-5;
+    color: $color-text-gray;
+  }
+  .p-inputtext {
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      left: $spacing-1 !important;
+    }
+    &:placeholder-shown + label {
+      left: $spacing-4;
+    }
+  }
+}

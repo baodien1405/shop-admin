@@ -1,0 +1,14 @@
+.p-carousel-indicator {
+  &.p-highlight {
+    button {
+      background: $color-bg-primary;
+    }
+  }
+  .p-carousel-next,
+  .p-carousel-prev {
+    .p-icon {
+      width: $sizing-3-5;
+      height: $sizing-3-5;
+    }
+  }
+}

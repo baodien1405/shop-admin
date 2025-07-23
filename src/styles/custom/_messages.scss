@@ -1,0 +1,19 @@
+.p-message {
+  .p-message-summary {
+    font-weight: $font-800;
+    line-height: $leading-6;
+  }
+
+  .p-message-detail {
+    font-weight: $font-400;
+    font-size: $font-sm;
+    line-height: $leading-5;
+  }
+}
+
+.p-inline-message {
+  &.p-inline-message-secondary {
+    background-color: $color-bg-container;
+    color: $color-text-gray;
+  }
+}

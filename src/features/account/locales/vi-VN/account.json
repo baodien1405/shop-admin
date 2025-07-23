@@ -1,0 +1,8 @@
+{
+  "account_filter": "Bộ lọc",
+  "account_remove_all": "Xóa tất cả",
+  "account_filter_selection_message": "{{ selected }} bộ lọc đang chọn",
+  "account_filter_tenant": "Đối tác",
+  "account_filter_status": "Trạng thái",
+  "account_filter_date": "Ngày"
+}

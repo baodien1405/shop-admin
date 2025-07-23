@@ -1,0 +1,30 @@
+.formField {
+  flex-direction: column;
+
+  &__label {
+    &--require {
+      &::after {
+        content: ' *';
+        color: $color-text-red;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  .p-invalid-message {
+    color: $color-text-red;
+  }
+}
+
+.p-inputtext {
+  &.p-invalid.p-component {
+    background-color: $color-bg-danger-light;
+  }
+
+  &.p-invalid:enabled:focus {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,145 @@
+import { useTranslation } from 'react-i18next'
+import { useQueryClient } from '@tanstack/react-query'
+
+import { ColumnProps } from 'primereact/column'
+import { confirmDialog } from 'primereact/confirmdialog'
+
+import { CompiledTable } from '@/features/shared/components'
+import { ListResponse } from '@/features/shared/models'
+import { ProductInterface } from '@/features/product/models'
+import { useAddEditProductDialogStore } from '@/features/product/stores'
+import { ToastService } from '@/features/shared/services'
+import { ProductQueryKeys } from '@/features/product/constants'
+import { getErrorMessage } from '@/features/shared/utils'
+import { useDeleteProductMutation } from '@/features/product/hooks'
+
+interface PublishedProductListProps {
+  loading: boolean
+  data?: ListResponse<ProductInterface>
+}
+
+export function PublishedProductList({
+  loading = false,
+  data = new ListResponse<ProductInterface>()
+}: PublishedProductListProps) {
+  const { t } = useTranslation('product')
+  const queryClient = useQueryClient()
+  const setSelectedProduct = useAddEditProductDialogStore((state) => state.setSelectedProduct)
+  const { mutateAsync: deleteProductMutateAsync, isPending: isDeleteProductPending } = useDeleteProductMutation()
+  const { items: dataList, pagination } = data
+  const pageIndex = (pagination.page - 1) * pagination.limit
+
+  const COLUMNS: ColumnProps[] = [
+    {
+      field: '_id',
+      header: t('product_id_column_header'),
+      frozen: true,
+      alignFrozen: 'left',
+      sortable: true
+    },
+    {
+      field: 'product_name',
+      header: t('product_name_column_header'),
+      sortable: true
+    },
+    {
+      field: 'product_description',
+      header: t('product_description_column_header'),
+      sortable: true,
+      body: (data) => {
+        return <div className='max-w-72 truncate'>{data.product_description}</div>
+      }
+    },
+    {
+      field: 'product_price',
+      header: t('product_price_column_header'),
+      sortable: true
+    },
+    {
+      field: 'product_quantity',
+      header: t('product_quantity_column_header'),
+      sortable: true
+    },
+    {
+      field: 'product_type',
+      header: t('product_type_column_header'),
+      sortable: true
+    },
+    {
+      field: 'product_ratingsAverage',
+      header: t('product_rating_average_column_header'),
+      sortable: true
+    },
+    {
+      header: t('product_actions_column_header'),
+      frozen: true,
+      alignFrozen: 'right',
+      align: 'center',
+      body: (data: ProductInterface) => (
+        <div className='flex items-center justify-between gap-2'>
+          <i
+            className='pi pi-pen-to-square text-yellow-700 cursor-pointer'
+            onClick={() =>
+              setSelectedProduct({
+                ...data,
+                isDraft: false,
+                isPublished: true
+              })
+            }
+          />
+          <i
+            className='pi pi-trash text-red-600 cursor-pointer'
+            onClick={() => {
+              confirmDialog({
+                message: t('product_confirm_remove_product_message', { productName: data.product_name }),
+                header: data.product_name,
+                accept: () => handleProductDelete(data._id),
+                acceptClassName: 'bg-red-600 mr-0 col-start-4 col-end-6 h-9 text-sm'
+              })
+            }}
+          />
+        </div>
+      )
+    }
+  ]
+
+  const handleProductDelete = async (productId: string) => {
+    if (!productId || isDeleteProductPending) return
+
+    try {
+      const response = await deleteProductMutateAsync(productId)
+
+      ToastService.success({
+        summary: t('shared_toast_success_summary', { ns: 'shared' }),
+        detail: response?.data?.message
+      })
+
+      queryClient.invalidateQueries({
+        queryKey: [ProductQueryKeys.DRAFT_PRODUCT_LIST]
+      })
+    } catch (error) {
+      ToastService.error({
+        summary: t('shared_toast_error_summary', { ns: 'shared' }),
+        detail: getErrorMessage(error)
+      })
+    }
+  }
+
+  return (
+    <CompiledTable
+      value={dataList}
+      loading={loading}
+      first={pageIndex}
+      totalRecords={pagination.totalRows}
+      rows={pagination.limit}
+      columns={COLUMNS}
+      tableStyle={{
+        minWidth: 'max-content'
+      }}
+      removableSort
+      scrollable
+      paginator={dataList.length > 0}
+      onPage={(e) => console.log('onPage', e)}
+    />
+  )
+}

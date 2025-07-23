@@ -1,0 +1,8 @@
+{
+  "account_filter": "Filter",
+  "account_remove_all": "Remove all",
+  "account_filter_selection_message": "{{ selected }} items selected",
+  "account_filter_tenant": "Tenant",
+  "account_filter_status": "Status",
+  "account_filter_date": "Date"
+}
