@@ -22,7 +22,10 @@ export const useAddEditProductSchema = () => {
     product_type: z.enum([ProductTypeEnum.ELECTRONICS, ProductTypeEnum.CLOTHING, ProductTypeEnum.FURNITURE], {
       required_error: t('product_validation_required_product_type')
     }),
-    product_ratingsAverage: z.number().min(0, t('product_validation_min_product_ratings_average')),
+    product_ratingsAverage: z
+      .number()
+      .min(0, t('product_validation_min_product_ratings_average'))
+      .max(5, t('product_validation_max_product_ratings_average')),
     product_attributes: z.object({
       brand: z.string().optional(),
       size: z.string().optional(),

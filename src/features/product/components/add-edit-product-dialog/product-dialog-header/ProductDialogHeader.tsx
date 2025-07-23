@@ -121,7 +121,7 @@ export function ProductDialogHeader({ isAdding, isEditing, isUploading, onClose 
           size='small'
           label={isEditMode ? t('shared_btn_save', { ns: 'shared' }) : t('shared_btn_add', { ns: 'shared' })}
           icon={isEditMode ? PrimeIcons.SAVE : PrimeIcons.PLUS}
-          loading={isAdding || isEditing}
+          loading={isAdding || isEditing || isUploading}
           disabled={isPublishing || isUploading}
           type='submit'
           form={FormId.ADD_EDIT_PRODUCT}

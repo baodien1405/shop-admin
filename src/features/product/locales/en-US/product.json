@@ -57,5 +57,6 @@
   "product_validation_min_product_price": "Product price must be a positive number",
   "product_validation_min_product_quantity": "Product quantity must be a positive number",
   "product_validation_required_product_type": "Please select product type",
-  "product_validation_min_product_ratings_average": "Product ratings average must be a positive number"
+  "product_validation_min_product_ratings_average": "Product ratings average must be a positive number",
+  "product_validation_max_product_ratings_average": "Product ratings average must be at most 5"
 }

@@ -58,5 +58,6 @@
   "product_validation_min_product_price": "Giá sản phẩm phải là một số dương",
   "product_validation_min_product_quantity": "Số lượng sản phẩm phải là một số dương",
   "product_validation_required_product_type": "Vui lòng chọn loại sản phẩm",
-  "product_validation_min_product_ratings_average": "Đánh giá trung bình của sản phẩm phải là một số dương"
+  "product_validation_min_product_ratings_average": "Đánh giá trung bình của sản phẩm phải là một số dương",
+  "product_validation_max_product_ratings_average": "Đánh giá trung bình của sản phẩm không được vượt quá 5"
 }
