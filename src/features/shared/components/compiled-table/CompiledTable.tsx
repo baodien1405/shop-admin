@@ -1,5 +1,6 @@
 import { Column, ColumnProps } from 'primereact/column'
 import { DataTable, DataTableProps, DataTableValueArray } from 'primereact/datatable'
+import { classNames } from 'primereact/utils'
 
 import { EmptyMessage } from '@/features/shared/components/empty-message'
 
@@ -13,13 +14,17 @@ export function CompiledTable<T extends DataTableValueArray>({
   value,
   columns = [],
   emptyMessage,
+  tableClassName,
+  className,
   ...restProps
 }: CompiledTableProps<T>) {
   return (
     <DataTable
+      lazy
       value={value}
       emptyMessage={emptyMessage || <EmptyMessage />}
-      tableClassName={styles['compiled-table']}
+      tableClassName={classNames(styles['compiled-table'], tableClassName)}
+      className={classNames(styles['wrapper-compiled-table'], className)}
       {...restProps}
     >
       {columns.map((col) => (

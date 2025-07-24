@@ -22,6 +22,8 @@ export interface ProductInterface {
 
 export interface ProductFiltersPayloadInterface {
   keyword: string
+  sortBy?: string
+  order?: string
 }
 
 export type ProductFiltersParamsType = ListParamsInterface & ProductFiltersPayloadInterface

@@ -12,11 +12,15 @@ export function useDraftProductFilters() {
     const keyword = searchParams.get('keyword') ?? ''
     const page = parseInt(searchParams.get('page') ?? '') || defaultParams.page
     const limit = parseInt(searchParams.get('limit') ?? '') || defaultParams.limit
+    const sortBy = searchParams.get('sortBy') ?? ''
+    const order = (searchParams.get('order') as ProductFiltersParamsType['order']) ?? ''
 
     return {
       keyword,
       page,
-      limit
+      limit,
+      sortBy,
+      order
     }
   }, [searchParams])
 

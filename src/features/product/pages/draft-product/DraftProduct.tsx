@@ -32,6 +32,7 @@ export default function DraftProduct() {
       <DraftProductFilters initialValues={filters} onChange={handleFiltersChange} />
 
       <DraftProductList
+        filters={filters}
         loading={isLoadingDraftProductList}
         data={draftProductListData}
         onPageChange={handleFiltersChange}

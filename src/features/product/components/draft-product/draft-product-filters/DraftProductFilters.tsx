@@ -19,7 +19,7 @@ export function DraftProductFilters({ initialValues, onChange }: DraftProductFil
     onSubmit: ({ value }) => {
       const payload = {
         ...value,
-        pageNumber: 1
+        page: 1
       }
 
       onChange?.(payload)

@@ -1,5 +1,18 @@
-.compiled-table {
+.wrapper-compiled-table {
   :global {
+    .p-datatable-loading-overlay {
+      @apply z-20 rounded-md;
+    }
+  }
+}
+
+.compiled-table {
+  min-width: max-content;
+  :global {
+    .p-component-overlay {
+      @apply bg-white z-20;
+    }
+
     .p-datatable-thead {
       @apply rounded-md;
     }
