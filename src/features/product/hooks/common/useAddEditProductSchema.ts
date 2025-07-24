@@ -9,9 +9,10 @@ export const useAddEditProductSchema = () => {
   const { t } = useTranslation('product')
 
   return z.object({
-    product_name: z.string().nonempty(t('product_validation_required_product_name')),
+    product_name: z.string().trim().nonempty(t('product_validation_required_product_name')),
     product_description: z
       .string()
+      .trim()
       .nonempty(t('product_validation_required_product_description'))
       .max(
         MAX_LENGTH_PRODUCT_DESCRIPTION,
@@ -27,13 +28,13 @@ export const useAddEditProductSchema = () => {
       .min(0, t('product_validation_min_product_ratings_average'))
       .max(5, t('product_validation_max_product_ratings_average')),
     product_attributes: z.object({
-      brand: z.string().optional(),
-      size: z.string().optional(),
-      material: z.string().optional(),
+      brand: z.string().trim().optional(),
+      size: z.string().trim().optional(),
+      material: z.string().trim().optional(),
 
-      manufacturer: z.string().optional(),
-      model: z.string().optional(),
-      color: z.string().optional()
+      manufacturer: z.string().trim().optional(),
+      model: z.string().trim().optional(),
+      color: z.string().trim().optional()
     }),
     product_thumbnail: z.instanceof(File).nullable()
   })

@@ -31,7 +31,11 @@ export default function DraftProduct() {
 
       <DraftProductFilters initialValues={filters} onChange={handleFiltersChange} />
 
-      <DraftProductList loading={isLoadingDraftProductList} data={draftProductListData} />
+      <DraftProductList
+        loading={isLoadingDraftProductList}
+        data={draftProductListData}
+        onPageChange={handleFiltersChange}
+      />
 
       <AddEditProductDialog />
     </section>

@@ -16,18 +16,19 @@ import { ProductQueryKeys } from '@/features/product/constants'
 interface DraftProductListProps {
   loading: boolean
   data?: ListResponse<ProductInterface>
+  onPageChange?: (payload: { page: number; limit: number }) => void
 }
 
 export function DraftProductList({
   loading = false,
-  data = new ListResponse<ProductInterface>()
+  data = new ListResponse<ProductInterface>(),
+  onPageChange = () => {}
 }: DraftProductListProps) {
   const { t } = useTranslation('product')
   const queryClient = useQueryClient()
   const setSelectedProduct = useAddEditProductDialogStore((state) => state.setSelectedProduct)
   const { mutateAsync: deleteProductMutateAsync, isPending: isDeleteProductPending } = useDeleteProductMutation()
   const { items: dataList, pagination } = data
-  const pageIndex = (pagination.page - 1) * pagination.limit
 
   const COLUMNS: ColumnProps[] = [
     {
@@ -127,19 +128,25 @@ export function DraftProductList({
 
   return (
     <CompiledTable
+      lazy
+      dataKey='_id'
       value={dataList}
       loading={loading}
-      first={pageIndex}
+      first={(pagination.page - 1) * pagination.limit}
       totalRecords={pagination.totalRows}
       rows={pagination.limit}
       columns={COLUMNS}
       tableStyle={{
         minWidth: 'max-content'
       }}
+      scrollHeight='var(--table-scroll-height)'
       removableSort
       scrollable
       paginator={dataList.length > 0}
-      onPage={(e) => console.log('onPage', e)}
+      rowsPerPageOptions={[10, 20, 50, 100]}
+      onPage={(e) => {
+        onPageChange({ page: Number(e.page) + 1, limit: e.rows })
+      }}
     />
   )
 }
