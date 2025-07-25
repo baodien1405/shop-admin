@@ -63,3 +63,11 @@
     }
   }
 }
+
+.paginator {
+  :global {
+    .p-paginator-current {
+      @apply inline-flex;
+    }
+  }
+}

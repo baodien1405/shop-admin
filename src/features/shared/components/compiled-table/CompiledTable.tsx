@@ -25,6 +25,13 @@ export function CompiledTable<T extends DataTableValueArray>({
       emptyMessage={emptyMessage || <EmptyMessage />}
       tableClassName={classNames(styles['compiled-table'], tableClassName)}
       className={classNames(styles['wrapper-compiled-table'], className)}
+      paginatorTemplate='RowsPerPageDropdown FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport'
+      currentPageReportTemplate='{first} - {last} of {totalRecords}'
+      scrollHeight='var(--table-scroll-height)'
+      paginatorClassName={styles.paginator}
+      rowsPerPageOptions={[10, 20, 50, 100]}
+      removableSort
+      scrollable
       {...restProps}
     >
       {columns.map((col) => (

@@ -146,20 +146,16 @@ export function DraftProductList({
   return (
     <CompiledTable
       dataKey='_id'
-      value={dataList}
       loading={loading}
+      value={dataList}
+      columns={getColumns()}
       first={(pagination.page - 1) * pagination.limit}
       totalRecords={pagination.totalRows}
       rows={pagination.limit}
-      columns={getColumns()}
-      scrollHeight='var(--table-scroll-height)'
-      removableSort
-      scrollable
       paginator={dataList.length > 0}
-      rowsPerPageOptions={[10, 20, 50, 100]}
-      onPage={handlePageChange}
       sortField={filters?.sortBy}
       sortOrder={filters?.order === 'asc' ? 1 : filters?.order === 'desc' ? -1 : 0}
+      onPage={handlePageChange}
       onSort={handleSortChange}
     />
   )
