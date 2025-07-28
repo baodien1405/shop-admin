@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useQueryClient } from '@tanstack/react-query'
 
@@ -29,6 +30,7 @@ export function DraftProductList({
 }: DraftProductListProps) {
   const { t } = useTranslation('product')
   const queryClient = useQueryClient()
+  const [selectedList, setSelectedList] = useState<ProductInterface[]>([])
   const setSelectedProduct = useAddEditProductDialogStore((state) => state.setSelectedProduct)
   const { mutateAsync: deleteProductMutateAsync, isPending: isDeleteProductPending } = useDeleteProductMutation()
   const { items: dataList, pagination } = data
@@ -60,6 +62,7 @@ export function DraftProductList({
   )
 
   const getColumns = (): ColumnProps[] => [
+    { selectionMode: 'multiple', frozen: true },
     {
       field: '_id',
       header: t('product_id_column_header'),
@@ -155,8 +158,11 @@ export function DraftProductList({
       paginator={dataList.length > 0}
       sortField={filters?.sortBy}
       sortOrder={filters?.order === 'asc' ? 1 : filters?.order === 'desc' ? -1 : 0}
+      selectionMode='checkbox'
+      selection={selectedList}
       onPage={handlePageChange}
       onSort={handleSortChange}
+      onSelectionChange={(e) => setSelectedList(e.value)}
     />
   )
 }
