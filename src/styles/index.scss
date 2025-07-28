@@ -30,6 +30,9 @@
     --sidebar-collapsed-width: 160px;
     --header-height: 68px;
     --toast-message-width: 344px;
+    --notification-header-height: 56px;
+    --notification-height: 560px;
+    --notification-width: 426px;
 
     *::-webkit-scrollbar {
       @apply w-1.5 h-1.5;

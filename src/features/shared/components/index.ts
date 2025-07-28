@@ -1,7 +1,6 @@
 export * from './form-field'
 export * from './confirm-dialog-config'
 export * from './switch-language'
-export * from './notification'
 export * from './bread-crumb'
 export * from './header'
 export * from './sidebar'

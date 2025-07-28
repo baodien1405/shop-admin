@@ -1,4 +1,8 @@
-import { BreadCrumb, Notification, SwitchLanguage, ThemeToggle } from '@/features/shared/components'
+import { lazy, Suspense } from 'react'
+
+import { BreadCrumb, Spinner, SwitchLanguage, ThemeToggle } from '@/features/shared/components'
+
+const Notification = lazy(() => import('@/features/notification/pages/notification'))
 
 export function Header() {
   return (
@@ -6,8 +10,12 @@ export function Header() {
       <BreadCrumb />
 
       <div className='flex items-center gap-2'>
-        <Notification />
+        <Suspense fallback={<Spinner />}>
+          <Notification />
+        </Suspense>
+
         <ThemeToggle />
+
         <SwitchLanguage />
       </div>
     </header>
