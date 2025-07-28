@@ -24,6 +24,7 @@
   "shared_menu_published_product": "Published Product",
   "shared_table_empty_message_title": "Empty data",
   "shared_table_empty_message_description": "You have no data to display",
+  "shared_table_current_page_report_template": "Total: {totalRecords}",
   "shared_auth_layout_intro": "Gain data-based insights, view progress at a glance, and manage your organization smarter",
   "shared_toast_success_summary": "Success",
   "shared_toast_error_summary": "Error",

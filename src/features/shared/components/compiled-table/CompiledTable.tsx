@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 import { Column, ColumnProps } from 'primereact/column'
 import { DataTable, DataTableProps, DataTableValueArray } from 'primereact/datatable'
 import { classNames } from 'primereact/utils'
@@ -18,6 +20,8 @@ export function CompiledTable<T extends DataTableValueArray>({
   className,
   ...restProps
 }: CompiledTableProps<T>) {
+  const { t } = useTranslation('shared')
+
   return (
     <DataTable
       lazy
@@ -26,7 +30,7 @@ export function CompiledTable<T extends DataTableValueArray>({
       tableClassName={classNames(styles['compiled-table'], tableClassName)}
       className={classNames(styles['wrapper-compiled-table'], className)}
       paginatorTemplate='RowsPerPageDropdown FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport'
-      currentPageReportTemplate='{first} - {last} of {totalRecords}'
+      currentPageReportTemplate={t('shared_table_current_page_report_template')}
       scrollHeight='var(--table-scroll-height)'
       paginatorClassName={styles.paginator}
       rowsPerPageOptions={[10, 20, 50, 100]}

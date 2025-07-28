@@ -24,6 +24,7 @@
   "shared_menu_published_product": "Sản phẩm đã xuất bản",
   "shared_table_empty_message_title": "Dữ liệu trống",
   "shared_table_empty_message_description": "Bạn không có dữ liệu để hiển thị",
+  "shared_table_current_page_report_template": "Tổng cộng: {totalRecords}",
   "shared_auth_layout_intro": "Có được những hiểu biết dựa trên dữ liệu, xem tiến độ trong nháy mắt và quản lý tổ chức của bạn một cách thông minh hơn",
   "shared_toast_success_summary": "Thành công",
   "shared_toast_error_summary": "Lỗi",
