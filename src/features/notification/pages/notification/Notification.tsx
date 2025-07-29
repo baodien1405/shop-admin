@@ -10,10 +10,13 @@ export default function Notification() {
   const overlayRef = useRef<OverlayPanel>(null)
   const { data: notificationListData } = useNotificationListQuery()
   const notificationList = notificationListData?.data?.metadata || []
+  const totalUnreadCount = notificationList.reduce((total, notification) => {
+    return total + (notification.isRead ? 0 : 1)
+  }, 0)
 
   return (
     <>
-      <NotificationIcon onToggle={(event) => overlayRef.current?.toggle(event)} />
+      <NotificationIcon totalUnreadCount={totalUnreadCount} onToggle={(event) => overlayRef.current?.toggle(event)} />
 
       <OverlayPanel
         ref={overlayRef}
