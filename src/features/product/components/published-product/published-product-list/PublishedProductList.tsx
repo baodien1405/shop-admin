@@ -1,12 +1,14 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useQueryClient } from '@tanstack/react-query'
 
 import { ColumnProps } from 'primereact/column'
 import { confirmDialog } from 'primereact/confirmdialog'
+import { DataTableStateEvent } from 'primereact/datatable'
 
 import { CompiledTable } from '@/features/shared/components'
 import { ListResponse } from '@/features/shared/models'
-import { ProductInterface } from '@/features/product/models'
+import { ProductFiltersParamsType, ProductInterface } from '@/features/product/models'
 import { useAddEditProductDialogStore } from '@/features/product/stores'
 import { ToastService } from '@/features/shared/services'
 import { ProductQueryKeys } from '@/features/product/constants'
@@ -14,22 +16,53 @@ import { getErrorMessage } from '@/features/shared/utils'
 import { useDeleteProductMutation } from '@/features/product/hooks'
 
 interface PublishedProductListProps {
+  filters?: ProductFiltersParamsType
   loading: boolean
   data?: ListResponse<ProductInterface>
+  onPageChange?: (payload: Partial<ProductFiltersParamsType>) => void
 }
 
 export function PublishedProductList({
+  filters,
   loading = false,
-  data = new ListResponse<ProductInterface>()
+  data = new ListResponse<ProductInterface>(),
+  onPageChange = () => {}
 }: PublishedProductListProps) {
   const { t } = useTranslation('product')
   const queryClient = useQueryClient()
+  const [selectedList, setSelectedList] = useState<ProductInterface[]>([])
   const setSelectedProduct = useAddEditProductDialogStore((state) => state.setSelectedProduct)
   const { mutateAsync: deleteProductMutateAsync, isPending: isDeleteProductPending } = useDeleteProductMutation()
   const { items: dataList, pagination } = data
-  const pageIndex = (pagination.page - 1) * pagination.limit
 
-  const COLUMNS: ColumnProps[] = [
+  const renderActions = (product: ProductInterface) => (
+    <div className='flex items-center justify-between gap-2'>
+      <i
+        className='pi pi-pen-to-square text-yellow-700 cursor-pointer'
+        onClick={() =>
+          setSelectedProduct({
+            ...product,
+            isDraft: false,
+            isPublished: true
+          })
+        }
+      />
+      <i
+        className='pi pi-trash text-red-600 cursor-pointer'
+        onClick={() => {
+          confirmDialog({
+            message: t('product_confirm_remove_product_message', { productName: product.product_name }),
+            header: product.product_name,
+            accept: () => handleProductDelete(product._id),
+            acceptClassName: 'bg-red-600 mr-0 col-start-4 col-end-6 h-9 text-sm'
+          })
+        }}
+      />
+    </div>
+  )
+
+  const getColumns = (): ColumnProps[] => [
+    { selectionMode: 'multiple', frozen: true },
     {
       field: '_id',
       header: t('product_id_column_header'),
@@ -75,31 +108,7 @@ export function PublishedProductList({
       frozen: true,
       alignFrozen: 'right',
       align: 'center',
-      body: (data: ProductInterface) => (
-        <div className='flex items-center justify-between gap-2'>
-          <i
-            className='pi pi-pen-to-square text-yellow-700 cursor-pointer'
-            onClick={() =>
-              setSelectedProduct({
-                ...data,
-                isDraft: false,
-                isPublished: true
-              })
-            }
-          />
-          <i
-            className='pi pi-trash text-red-600 cursor-pointer'
-            onClick={() => {
-              confirmDialog({
-                message: t('product_confirm_remove_product_message', { productName: data.product_name }),
-                header: data.product_name,
-                accept: () => handleProductDelete(data._id),
-                acceptClassName: 'bg-red-600 mr-0 col-start-4 col-end-6 h-9 text-sm'
-              })
-            }}
-          />
-        </div>
-      )
+      body: renderActions
     }
   ]
 
@@ -125,21 +134,37 @@ export function PublishedProductList({
     }
   }
 
+  const handlePageChange = (event: DataTableStateEvent) => {
+    onPageChange({ page: Number(event.page) + 1, limit: event.rows })
+  }
+
+  const handleSortChange = (event: DataTableStateEvent) => {
+    onPageChange({
+      ...filters,
+      page: 1,
+      limit: filters?.limit || 10,
+      sortBy: event.sortField,
+      order: event.sortOrder === 1 ? 'asc' : event.sortOrder === -1 ? 'desc' : undefined
+    })
+  }
+
   return (
     <CompiledTable
-      value={dataList}
+      dataKey='_id'
       loading={loading}
-      first={pageIndex}
+      value={dataList}
+      columns={getColumns()}
+      first={(pagination.page - 1) * pagination.limit}
       totalRecords={pagination.totalRows}
       rows={pagination.limit}
-      columns={COLUMNS}
-      tableStyle={{
-        minWidth: 'max-content'
-      }}
-      removableSort
-      scrollable
       paginator={dataList.length > 0}
-      onPage={(e) => console.log('onPage', e)}
+      sortField={filters?.sortBy}
+      sortOrder={filters?.order === 'asc' ? 1 : filters?.order === 'desc' ? -1 : 0}
+      selectionMode='checkbox'
+      selection={selectedList}
+      onPage={handlePageChange}
+      onSort={handleSortChange}
+      onSelectionChange={(e) => setSelectedList(e.value)}
     />
   )
 }

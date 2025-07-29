@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { ProductFiltersPayloadInterface } from '@/features/product/models'
+import { ProductFiltersParamsType } from '@/features/product/models'
 import { ListParams } from '@/features/shared/models'
 
 export function usePublishedProductFilters() {
@@ -12,16 +12,20 @@ export function usePublishedProductFilters() {
     const keyword = searchParams.get('keyword') ?? ''
     const page = parseInt(searchParams.get('page') ?? '') || defaultParams.page
     const limit = parseInt(searchParams.get('limit') ?? '') || defaultParams.limit
+    const sortBy = searchParams.get('sortBy') ?? ''
+    const order = (searchParams.get('order') as ProductFiltersParamsType['order']) ?? ''
 
     return {
       keyword,
       page,
-      limit
+      limit,
+      sortBy,
+      order
     }
   }, [searchParams])
 
   const setFilters = useCallback(
-    (newFilters: ProductFiltersPayloadInterface) => {
+    (newFilters: ProductFiltersParamsType) => {
       setSearchParams((params) => {
         Object.entries(newFilters).forEach(([key, value]) => {
           if ([undefined, null, ''].includes(value) || (Array.isArray(value) && value.length === 0)) {

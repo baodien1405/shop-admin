@@ -7,12 +7,20 @@ import {
   PublishedProductList
 } from '@/features/product/components'
 import { usePublishedProductFilters, usePublishedProductListQuery } from '@/features/product/hooks'
+import { ProductFiltersParamsType } from '@/features/product/models'
 
 export default function PublishedProduct() {
   const { t } = useTranslation('product')
-  const { filters } = usePublishedProductFilters()
+  const { filters, setFilters } = usePublishedProductFilters()
   const { data: publishedProductListData, isFetching: isLoadingPublishedProductList } =
     usePublishedProductListQuery(filters)
+
+  const handleFiltersChange = (payload: Partial<ProductFiltersParamsType>) => {
+    setFilters({
+      ...filters,
+      ...payload
+    })
+  }
 
   return (
     <section className='px-4'>
@@ -22,7 +30,7 @@ export default function PublishedProduct() {
         <PublishedProductActions isExporting={false} onExport={() => {}} />
       </section>
 
-      <PublishedProductFilters />
+      <PublishedProductFilters initialValues={filters} onChange={handleFiltersChange} />
 
       <PublishedProductList loading={isLoadingPublishedProductList} data={publishedProductListData} />
 

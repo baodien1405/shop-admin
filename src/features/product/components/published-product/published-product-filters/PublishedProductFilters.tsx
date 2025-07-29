@@ -15,7 +15,7 @@ export function PublishedProductFilters({ initialValues, onChange }: PublishedPr
   const { Field, handleSubmit } = useForm({
     defaultValues: {
       ...initialValues
-    } as ProductFiltersPayloadInterface,
+    },
     onSubmit: ({ value }) => {
       const payload = {
         ...value,
