@@ -1,7 +1,7 @@
 {
   "name": "shop-admin",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,6 +19,7 @@
     "@tanstack/react-form": "^1.11.1",
     "@tanstack/react-query": "^5.76.1",
     "axios": "^1.9.0",
+    "dayjs": "^1.11.13",
     "i18next": "^24.2.0",
     "jwt-decode": "^4.0.0",
     "primeicons": "^7.0.0",

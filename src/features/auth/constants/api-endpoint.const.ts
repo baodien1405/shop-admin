@@ -14,5 +14,8 @@ export const ApiEndpoint = {
   UNPUBLISH_PRODUCT: '/v1/api/product/unpublish/:id',
   ADD_PRODUCT: '/v1/api/product',
   EDIT_PRODUCT: '/v1/api/product/:id',
-  DELETE_PRODUCT: '/v1/api/product/:id'
+  DELETE_PRODUCT: '/v1/api/product/:id',
+
+  // Notification Endpoints
+  NOTIFICATION_LIST: '/v1/api/notification'
 }

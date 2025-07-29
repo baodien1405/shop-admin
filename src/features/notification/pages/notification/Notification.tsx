@@ -4,29 +4,12 @@ import { OverlayPanel } from 'primereact/overlaypanel'
 import { classNames } from 'primereact/utils'
 
 import { NotificationHeader, NotificationIcon, NotificationItem } from '@/features/notification/components'
+import { useNotificationListQuery } from '@/features/notification/hooks'
 
 export default function Notification() {
   const overlayRef = useRef<OverlayPanel>(null)
-  const notificationList = [
-    {
-      id: '1',
-      title: 'New Product',
-      content: 'New product added',
-      severity: 'info',
-      creationTime: '2023-10-01T12:00:00Z',
-      readAt: null,
-      downloadItems: [{ fileName: 'product-details.pdf', extension: '.pdf', url: '/downloads/product-details.pdf' }]
-    },
-    {
-      id: '2',
-      title: 'Order Shipped',
-      content: 'Order shipped',
-      severity: 'success',
-      creationTime: '2023-10-02T14:00:00Z',
-      readAt: null,
-      downloadItems: []
-    }
-  ]
+  const { data: notificationListData } = useNotificationListQuery()
+  const notificationList = notificationListData?.data?.metadata || []
 
   return (
     <>
@@ -46,7 +29,7 @@ export default function Notification() {
           )}
         >
           {notificationList.map((notification) => (
-            <NotificationItem key={notification.id} notification={notification} />
+            <NotificationItem key={notification._id} notification={notification} />
           ))}
         </section>
       </OverlayPanel>
