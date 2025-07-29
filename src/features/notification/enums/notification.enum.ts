@@ -1,0 +1,6 @@
+export enum NotificationTypesEnum {
+  ORDER_SUCCESS = 'ORDER-001',
+  ORDER_FAILED = 'ORDER-002',
+  PROMOTION_CREATED = 'PROMOTION-001',
+  SHOP_PRODUCT_ADDED = 'SHOP-001'
+}

@@ -4,16 +4,10 @@ import { Badge } from 'primereact/badge'
 import { classNames } from 'primereact/utils'
 
 import { NotificationInterface } from '@/features/notification/models'
+import { NotificationTypesEnum } from '@/features/notification/enums'
 
 interface NotificationItemProps {
   notification: NotificationInterface
-}
-
-enum NotificationTypesEnum {
-  ORDER_SUCCESS = 'ORDER-001',
-  ORDER_FAILED = 'ORDER-002',
-  PROMOTION_CREATED = 'PROMOTION-001',
-  SHOP_PRODUCT_ADDED = 'SHOP-001'
 }
 
 export function NotificationItem({ notification }: NotificationItemProps) {
