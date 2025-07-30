@@ -20,7 +20,7 @@ export default function Login() {
 
     try {
       await loginMutateAsync(payload)
-      const redirectPath = location?.state || RoutePath.ACCOUNTS
+      const redirectPath = location?.state || RoutePath.USERS
       navigate(redirectPath)
     } catch (error) {
       ToastService.error({

@@ -5,7 +5,7 @@ import { NotFound } from '@/features/shared/components'
 import { RoutePath } from '@/features/shared/constants'
 import { AuthLayout, MainLayout } from '@/features/shared/layouts'
 import { RejectedRoute, ProtectedRoute } from '@/routes'
-import { accountRoutes } from '@/features/account/routes'
+import { userRoutes } from '@/features/user/routes'
 import { productRoutes } from '@/features/product/routes'
 
 export function useAppRoute() {
@@ -25,12 +25,12 @@ export function useAppRoute() {
       ]
     },
     {
-      path: RoutePath.ACCOUNTS,
+      path: RoutePath.USERS,
       element: <MainLayout />,
       children: [
         {
           element: <ProtectedRoute />,
-          children: accountRoutes
+          children: userRoutes
         }
       ]
     },

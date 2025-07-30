@@ -7,9 +7,9 @@ export const useBreadcrumb = () => {
 
   const BREADCRUMB_LABEL_MAP = {
     [RoutePath.APPROVAL_PIPELINES]: t('shared_menu_request_management'),
-    [RoutePath.ACCOUNTS]: t('shared_menu_account_management'),
-    [`${RoutePath.ACCOUNTS}${RoutePath.TRADING_ACCOUNT}`]: t('shared_menu_trading_account'),
-    [`${RoutePath.ACCOUNTS}${RoutePath.UNVERIFIED_ACCOUNT}`]: t('shared_menu_unverified_account'),
+    [RoutePath.USERS]: t('shared_menu_user'),
+    [`${RoutePath.USERS}${RoutePath.ACTIVE_USER}`]: t('shared_menu_active_user'),
+    [`${RoutePath.USERS}${RoutePath.TRASH_USER}`]: t('shared_menu_trash_user'),
     [RoutePath.PRODUCTS]: t('shared_menu_product'),
     [`${RoutePath.PRODUCTS}${RoutePath.DRAFT}`]: t('shared_menu_draft_product'),
     [`${RoutePath.PRODUCTS}${RoutePath.PUBLISHED}`]: t('shared_menu_published_product')

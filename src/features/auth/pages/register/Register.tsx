@@ -18,7 +18,7 @@ export default function Register() {
 
     try {
       await registerMutateAsync(payload)
-      navigate(RoutePath.ACCOUNTS)
+      navigate(RoutePath.USERS)
     } catch (error) {
       ToastService.error({
         summary: t('shared_toast_error_summary', { ns: 'shared' }),

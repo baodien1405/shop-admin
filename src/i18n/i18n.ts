@@ -7,8 +7,8 @@ import AUTH_VI from '@/features/auth/locales/vi-VN/auth.json'
 import SHARED_EN from '@/features/shared/locales/en-US/shared.json'
 import SHARED_VI from '@/features/shared/locales/vi-VN/shared.json'
 
-import ACCOUNT_EN from '@/features/account/locales/en-US/account.json'
-import ACCOUNT_VI from '@/features/account/locales/vi-VN/account.json'
+import USER_EN from '@/features/user/locales/en-US/user.json'
+import USER_VI from '@/features/user/locales/vi-VN/user.json'
 
 import PRODUCT_EN from '@/features/product/locales/en-US/product.json'
 import PRODUCT_VI from '@/features/product/locales/vi-VN/product.json'
@@ -25,14 +25,14 @@ export const resources = {
   'en-US': {
     auth: AUTH_EN,
     shared: SHARED_EN,
-    account: ACCOUNT_EN,
+    user: USER_EN,
     product: PRODUCT_EN,
     notification: NOTIFICATION_EN
   },
   'vi-VN': {
     auth: AUTH_VI,
     shared: SHARED_VI,
-    account: ACCOUNT_VI,
+    user: USER_VI,
     product: PRODUCT_VI,
     notification: NOTIFICATION_VI
   }

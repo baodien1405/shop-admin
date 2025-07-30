@@ -20,29 +20,29 @@ export function useMenu() {
     {
       key: '0',
       icon: PrimeIcons.USERS,
-      href: RoutePath.ACCOUNTS,
-      label: t('shared_menu_account_management'),
+      href: RoutePath.USERS,
+      label: t('shared_menu_user'),
       show: true,
       className: classNames({
-        'menu-parent-active': isPathMatched(RoutePath.ACCOUNTS, false)
+        'menu-parent-active': isPathMatched(RoutePath.USERS, false)
       }),
       items: [
         {
           key: '0.1',
-          label: t('shared_menu_trading_account'),
-          href: RoutePath.TRADING_ACCOUNT,
-          command: () => navigate(`${RoutePath.ACCOUNTS}${RoutePath.TRADING_ACCOUNT}`),
+          label: t('shared_menu_active_user'),
+          href: RoutePath.ACTIVE_USER,
+          command: () => navigate([RoutePath.USERS, RoutePath.ACTIVE_USER].join('')),
           className: classNames({
-            'menu-item-active': isPathMatched(`${RoutePath.ACCOUNTS}${RoutePath.TRADING_ACCOUNT}`, true)
+            'menu-item-active': isPathMatched([RoutePath.USERS, RoutePath.ACTIVE_USER].join(''), true)
           })
         },
         {
           key: '0.2',
-          label: t('shared_menu_unverified_account'),
-          href: RoutePath.UNVERIFIED_ACCOUNT,
-          command: () => navigate(`${RoutePath.ACCOUNTS}${RoutePath.UNVERIFIED_ACCOUNT}`),
+          label: t('shared_menu_trash_user'),
+          href: RoutePath.TRASH_USER,
+          command: () => navigate([RoutePath.USERS, RoutePath.TRASH_USER].join('')),
           className: classNames({
-            'menu-item-active': isPathMatched(`${RoutePath.ACCOUNTS}${RoutePath.UNVERIFIED_ACCOUNT}`, true)
+            'menu-item-active': isPathMatched([RoutePath.USERS, RoutePath.TRASH_USER].join(''), true)
           })
         }
       ]
@@ -61,18 +61,18 @@ export function useMenu() {
           key: '1.1',
           label: t('shared_menu_draft_product'),
           href: RoutePath.DRAFT,
-          command: () => navigate(`${RoutePath.PRODUCTS}${RoutePath.DRAFT}`),
+          command: () => navigate([RoutePath.PRODUCTS, RoutePath.DRAFT].join('')),
           className: classNames({
-            'menu-item-active': isPathMatched(`${RoutePath.PRODUCTS}${RoutePath.DRAFT}`, true)
+            'menu-item-active': isPathMatched([RoutePath.PRODUCTS, RoutePath.DRAFT].join(''), true)
           })
         },
         {
           key: '1.2',
           label: t('shared_menu_published_product'),
           href: RoutePath.PUBLISHED,
-          command: () => navigate(`${RoutePath.PRODUCTS}${RoutePath.PUBLISHED}`),
+          command: () => navigate([RoutePath.PRODUCTS, RoutePath.PUBLISHED].join('')),
           className: classNames({
-            'menu-item-active': isPathMatched(`${RoutePath.PRODUCTS}${RoutePath.PUBLISHED}`, true)
+            'menu-item-active': isPathMatched([RoutePath.PRODUCTS, RoutePath.PUBLISHED].join(''), true)
           })
         }
       ]

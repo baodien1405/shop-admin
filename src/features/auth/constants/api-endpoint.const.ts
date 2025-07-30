@@ -17,5 +17,8 @@ export const ApiEndpoint = {
   DELETE_PRODUCT: '/v1/api/product/:id',
 
   // Notification Endpoints
-  NOTIFICATION_LIST: '/v1/api/notification'
+  NOTIFICATION_LIST: '/v1/api/notification',
+
+  // User Endpoints
+  USER_LIST: '/v1/api/user'
 }
