@@ -76,6 +76,17 @@ export function useMenu() {
           })
         }
       ]
+    },
+    {
+      key: '2',
+      icon: PrimeIcons.TAG,
+      href: RoutePath.DISCOUNTS,
+      label: t('shared_menu_discount'),
+      show: true,
+      command: () => navigate(RoutePath.DISCOUNTS),
+      className: classNames({
+        'menu-parent-active': isPathMatched(RoutePath.DISCOUNTS, false)
+      })
     }
   ]
 

@@ -20,5 +20,9 @@ export const ApiEndpoint = {
   NOTIFICATION_LIST: '/v1/api/notification',
 
   // User Endpoints
-  USER_LIST: '/v1/api/user'
+  USER_LIST: '/v1/api/user',
+  ACTIVE_USER_LIST: '/v1/api/user/active',
+
+  // Discount Endpoints
+  DISCOUNT_LIST: '/v1/api/discount'
 }

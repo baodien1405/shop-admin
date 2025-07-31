@@ -1,12 +1,14 @@
 import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
-import { authRoutes } from '@/features/auth/routes'
 import { NotFound } from '@/features/shared/components'
 import { RoutePath } from '@/features/shared/constants'
 import { AuthLayout, MainLayout } from '@/features/shared/layouts'
 import { RejectedRoute, ProtectedRoute } from '@/routes'
+
 import { userRoutes } from '@/features/user/routes'
+import { authRoutes } from '@/features/auth/routes'
 import { productRoutes } from '@/features/product/routes'
+import { discountRoutes } from '@/features/discount/routes'
 
 export function useAppRoute() {
   const routes: RouteObject[] = [
@@ -45,12 +47,12 @@ export function useAppRoute() {
       ]
     },
     {
-      path: RoutePath.STAFF,
+      path: RoutePath.DISCOUNTS,
       element: <MainLayout />,
       children: [
         {
           element: <ProtectedRoute />,
-          children: []
+          children: discountRoutes
         }
       ]
     },

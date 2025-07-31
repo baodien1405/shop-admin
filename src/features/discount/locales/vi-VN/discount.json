@@ -1,0 +1,9 @@
+{
+  "discount_title": "Danh sách giảm giá",
+  "discount_id_column_header": "Mã giảm giá",
+  "discount_name_column_header": "Tên giảm giá",
+  "discount_code_column_header": "Mã giảm giá",
+  "discount_actions_column_header": "Thao tác",
+  "discount_add_title": "Tạo mới giảm giá",
+  "discount_edit_title": "Thông tin chi tiết giảm giá - {{discountName}}"
+}

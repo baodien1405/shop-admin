@@ -1,0 +1,9 @@
+{
+  "discount_title": "Discounts",
+  "discount_id_column_header": "ID",
+  "discount_name_column_header": "Name",
+  "discount_code_column_header": "Code",
+  "discount_actions_column_header": "Actions",
+  "discount_add_title": "Add Discount",
+  "discount_edit_title": "Discount Details - {{discountName}}"
+}

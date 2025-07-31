@@ -1,30 +1,23 @@
 export const RoutePath = {
+  // Auth routes
   HOME: '/',
   LOGIN: '/login',
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',
-  GATEWAY: '/gateway',
-  APPROVAL_PIPELINES: '/approval-pipelines',
+
+  // User routes
   USERS: '/users',
   ACTIVE_USER: '/active-user',
   TRASH_USER: '/trash-user',
-  REPORTS: '/reports',
-  DASHBOARD: '/dashboard',
-  PAYMENTS: '/payments',
-  PAYMENTS_BANK_TRANSFER: '/bank-transfer',
-  PAYMENTS_PAYOO: '/payoo',
-  PAYMENTS_FNZ: '/fnz',
-  RECONCILIATION: '/reconciliation',
-  RECONCILIATION_INVESTOR: '/investor',
-  RECONCILIATION_INVESTOR_INDIVIDUAL_INVESTOR: '/individual-investor',
-  RECONCILIATION_INVESTOR_INSTITUTIONAL_INVESTOR: '/institutional-investor',
-  CONTENTS: '/contents',
-  FUND: '/fund',
-  FUND_LIST: '/fund-list',
-  FUND_CATEGORY: '/fund-category',
-  STAFF: '/staff',
+
+  // Shared routes
   NOT_FOUND: '/404',
+
+  // Product routes
   PRODUCTS: '/products',
   DRAFT: '/draft',
-  PUBLISHED: '/published'
+  PUBLISHED: '/published',
+
+  // Discount routes
+  DISCOUNTS: '/discounts'
 }

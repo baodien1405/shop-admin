@@ -16,6 +16,9 @@ import PRODUCT_VI from '@/features/product/locales/vi-VN/product.json'
 import NOTIFICATION_EN from '@/features/notification/locales/en-US/notification.json'
 import NOTIFICATION_VI from '@/features/notification/locales/vi-VN/notification.json'
 
+import DISCOUNT_EN from '@/features/discount/locales/en-US/discount.json'
+import DISCOUNT_VI from '@/features/discount/locales/vi-VN/discount.json'
+
 export const locales = {
   'en-US': 'English',
   'vi-VN': 'Tiếng Việt'
@@ -27,14 +30,16 @@ export const resources = {
     shared: SHARED_EN,
     user: USER_EN,
     product: PRODUCT_EN,
-    notification: NOTIFICATION_EN
+    notification: NOTIFICATION_EN,
+    discount: DISCOUNT_EN
   },
   'vi-VN': {
     auth: AUTH_VI,
     shared: SHARED_VI,
     user: USER_VI,
     product: PRODUCT_VI,
-    notification: NOTIFICATION_VI
+    notification: NOTIFICATION_VI,
+    discount: DISCOUNT_VI
   }
 } as const
 
