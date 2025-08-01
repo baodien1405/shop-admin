@@ -29,7 +29,12 @@ export const getBase64 = (file: File): Promise<string> =>
     reader.onerror = (error) => reject(error)
   })
 
-export const formatAmount = (amount: number, locales = 'en-US', currency = 'USD', maximumFractionDigits = 2) => {
+export const formatAmount = (
+  amount: number,
+  options: { locales?: string; currency?: string; maximumFractionDigits?: number } = {}
+) => {
+  const { locales = 'en-US', currency = 'USD', maximumFractionDigits = 2 } = options
+
   return new Intl.NumberFormat(locales, {
     style: 'currency',
     currency: currency,

@@ -2,8 +2,21 @@
   "discount_title": "Discounts",
   "discount_id_column_header": "ID",
   "discount_name_column_header": "Name",
+  "discount_description_column_header": "Description",
   "discount_code_column_header": "Code",
+  "discount_type_column_header": "Type",
+  "discount_value_column_header": "Value",
+  "discount_usage_column_header": "Usage",
+  "discount_max_uses_per_user_column_header": "Max Uses Per User",
+  "discount_min_order_value_column_header": "Min Order Value",
+  "discount_max_value_column_header": "Max Value",
+  "discount_status_column_header": "Status",
+  "discount_validity_column_header": "Validity",
+  "discount_created_at_column_header": "Created At",
+  "discount_updated_at_column_header": "Updated At",
   "discount_actions_column_header": "Actions",
   "discount_add_title": "Add Discount",
-  "discount_edit_title": "Discount Details - {{discountName}}"
+  "discount_edit_title": "Discount Details - {{discountName}}",
+  "discount_status_active": "Active",
+  "discount_status_inactive": "Inactive"
 }

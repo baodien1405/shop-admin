@@ -2,8 +2,20 @@
   "discount_title": "Danh sách giảm giá",
   "discount_id_column_header": "Mã giảm giá",
   "discount_name_column_header": "Tên giảm giá",
+  "discount_description_column_header": "Mô tả giảm giá",
   "discount_code_column_header": "Mã giảm giá",
+  "discount_type_column_header": "Loại giảm giá",
+  "discount_value_column_header": "Giá trị giảm giá",
+  "discount_usage_column_header": "Sử dụng",
+  "discount_max_uses_per_user_column_header": "Số lần sử dụng tối đa trên mỗi người dùng",
+  "discount_min_order_value_column_header": "Giá trị đơn hàng tối thiểu",
+  "discount_max_value_column_header": "Giảm giá tối đa",
+  "discount_validity_column_header": "Thời gian hiệu lực",
+  "discount_created_at_column_header": "Ngày tạo",
+  "discount_updated_at_column_header": "Ngày cập nhật",
   "discount_actions_column_header": "Thao tác",
   "discount_add_title": "Tạo mới giảm giá",
-  "discount_edit_title": "Thông tin chi tiết giảm giá - {{discountName}}"
+  "discount_edit_title": "Thông tin chi tiết giảm giá - {{discountName}}",
+  "discount_status_active": "Đang hoạt động",
+  "discount_status_inactive": "Không hoạt động"
 }
