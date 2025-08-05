@@ -8,8 +8,8 @@ export interface DiscountInterface {
   discount_type: DiscountTypeEnum
   discount_value: number
   discount_code: string
-  discount_start_date: string
-  discount_end_date: string
+  discount_start_date: Date | null
+  discount_end_date: Date | null
   discount_max_uses: number
   discount_uses_count: number
   discount_users_used: string[]

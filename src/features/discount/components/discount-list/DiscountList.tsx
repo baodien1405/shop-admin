@@ -15,6 +15,7 @@ import { ListResponse } from '@/features/shared/models'
 import { DiscountTypeEnum } from '@/features/discount/enums'
 import { DISCOUNT_TYPE_OPTIONS_MAP } from '@/features/discount/constants'
 import { formatAmount } from '@/features/shared/utils'
+import { useAddEditDiscountDialogStore } from '@/features/discount/stores'
 
 interface DiscountListProps {
   filters?: ProductFiltersParamsType
@@ -30,6 +31,7 @@ export function DiscountList({
   onPageChange = () => {}
 }: DiscountListProps) {
   const { t, i18n } = useTranslation('discount')
+  const setSelectedDiscount = useAddEditDiscountDialogStore((state) => state.setSelectedDiscount)
   const [selectedList, setSelectedList] = useState<DiscountInterface[]>([])
   const { items: dataList, pagination } = data
 
@@ -68,9 +70,9 @@ export function DiscountList({
     return `${startDate} - ${endDate}`
   }
 
-  const renderActions = () => (
+  const renderActions = (discount: DiscountInterface) => (
     <div className='flex items-center justify-center gap-2'>
-      <i className='pi pi-pen-to-square text-yellow-700 cursor-pointer' />
+      <i className='pi pi-pen-to-square text-yellow-700 cursor-pointer' onClick={() => setSelectedDiscount(discount)} />
       <i className='pi pi-trash text-red-600 cursor-pointer' />
     </div>
   )
