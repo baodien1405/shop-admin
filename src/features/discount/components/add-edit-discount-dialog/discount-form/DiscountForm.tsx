@@ -9,12 +9,12 @@ import { Calendar } from 'primereact/calendar'
 import { InputSwitch } from 'primereact/inputswitch'
 import { MultiSelect } from 'primereact/multiselect'
 
-import { DISCOUNT_APPLIES_TO_OPTIONS, DISCOUNT_TYPE_OPTIONS } from '@/features/discount/constants'
+import { DISCOUNT_APPLIES_TO_OPTIONS, DISCOUNT_TYPE_OPTIONS, FormId } from '@/features/discount/constants'
 import { DiscountInterface } from '@/features/discount/models'
-import { FormId } from '@/features/product/constants'
 import { FormField } from '@/features/shared/components'
 import { usePublishedProductListQuery } from '@/features/product/hooks'
 import { DiscountAppliesToEnum } from '@/features/discount/enums'
+import { useAddEditDiscountSchema } from '@/features/discount/hooks'
 
 interface DiscountFormProps {
   initialValues?: Partial<DiscountInterface> | null
@@ -23,13 +23,21 @@ interface DiscountFormProps {
 
 export function DiscountForm({ initialValues, onSubmit }: DiscountFormProps) {
   const { t } = useTranslation('discount')
+  const addEditDiscountSchema = useAddEditDiscountSchema()
   const { Field, Subscribe, handleSubmit } = useForm({
     defaultValues: {
       ...initialValues,
+      discount_name: initialValues?.discount_name ?? '',
+      discount_description: initialValues?.discount_description ?? '',
+      discount_code: initialValues?.discount_code ?? '',
       discount_start_date: initialValues?.discount_start_date ? new Date(initialValues.discount_start_date) : null,
       discount_end_date: initialValues?.discount_end_date ? new Date(initialValues.discount_end_date) : null
     },
+    validators: {
+      onSubmit: addEditDiscountSchema
+    },
     onSubmit: async ({ value }) => {
+      console.log('🚀 ~ DiscountForm ~ value:', value)
       onSubmit?.(value)
     }
   })
@@ -42,7 +50,7 @@ export function DiscountForm({ initialValues, onSubmit }: DiscountFormProps) {
 
   return (
     <form
-      id={FormId.ADD_EDIT_PRODUCT}
+      id={FormId.ADD_EDIT_DISCOUNT}
       className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-4'
       noValidate
       onSubmit={(e) => {
@@ -340,7 +348,7 @@ export function DiscountForm({ initialValues, onSubmit }: DiscountFormProps) {
         name='discount_is_active'
         children={(field) => (
           <FormField>
-            <FormField.Label required>{t('discount_is_active_label')}</FormField.Label>
+            <FormField.Label>{t('discount_is_active_label')}</FormField.Label>
             <InputSwitch
               checked={!!field.state.value}
               onChange={(e) => field.handleChange(e.value)}
