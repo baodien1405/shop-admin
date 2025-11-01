@@ -5,8 +5,6 @@ import { LoginForm, SocialButtonGroup } from '@/features/auth/components'
 import { RoutePath } from '@/features/shared/constants'
 import { useLoginMutation } from '@/features/auth/hooks'
 import { LoginPayload } from '@/features/auth/models'
-import { ToastService } from '@/features/shared/services'
-import { getErrorMessage } from '@/features/shared/utils'
 
 export default function Login() {
   const { t } = useTranslation(['auth', 'shared'])
@@ -18,16 +16,10 @@ export default function Login() {
   const handleLogin = async (payload: LoginPayload) => {
     if (isLoginPending) return
 
-    try {
-      await loginMutateAsync(payload)
-      const redirectPath = location?.state || RoutePath.USERS
-      navigate(redirectPath)
-    } catch (error) {
-      ToastService.error({
-        summary: t('shared_toast_error_summary', { ns: 'shared' }),
-        detail: getErrorMessage(error)
-      })
-    }
+    await loginMutateAsync(payload)
+
+    const redirectPath = location?.state || RoutePath.USERS
+    navigate(redirectPath)
   }
 
   return (

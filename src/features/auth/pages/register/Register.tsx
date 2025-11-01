@@ -5,8 +5,6 @@ import { RegisterForm, SocialButtonGroup } from '@/features/auth/components'
 import { RoutePath } from '@/features/shared/constants'
 import { useRegisterMutation } from '@/features/auth/hooks'
 import { RegisterPayload } from '@/features/auth/models'
-import { ToastService } from '@/features/shared/services'
-import { getErrorMessage } from '@/features/shared/utils'
 
 export default function Register() {
   const { t } = useTranslation(['auth', 'shared'])
@@ -16,15 +14,9 @@ export default function Register() {
   const handleRegister = async (payload: RegisterPayload) => {
     if (isRegisterPending) return
 
-    try {
-      await registerMutateAsync(payload)
-      navigate(RoutePath.USERS)
-    } catch (error) {
-      ToastService.error({
-        summary: t('shared_toast_error_summary', { ns: 'shared' }),
-        detail: getErrorMessage(error)
-      })
-    }
+    await registerMutateAsync(payload)
+
+    navigate(RoutePath.USERS)
   }
 
   return (
